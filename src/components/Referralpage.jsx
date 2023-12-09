@@ -23,7 +23,7 @@ const Referralpage = () => {
         }),
         onSubmit: values => {
             let token = localStorage.token
-            axios.post("http://localhost:4500/userinvest/referral", { Enteramount: values.enteramount, token})
+            axios.post("https://propulses.onrender.com/userinvest/referral", { Enteramount: values.enteramount, token})
             .then((response)=>{
                 swal({
                     title: "",

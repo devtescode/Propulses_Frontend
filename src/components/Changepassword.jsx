@@ -31,7 +31,7 @@ const Changepassword = () => {
         }),
         onSubmit: values => {
             let token = localStorage.token
-            axios.post("http://localhost:4500/userinvest/changepassword", { Currencypassword: values.currencypass, Newpassword: values.newpass, token })
+            axios.post("https://propulses.onrender.com/userinvest/changepassword", { Currencypassword: values.currencypass, Newpassword: values.newpass, token })
                 .then((response) => {
                     swal({
                         title: "",

@@ -14,8 +14,8 @@ const Profilepage = () => {
     })
     const [file, setfile] = useState("");
     const [image, setimage] = useState("");
-    let url1 = "http://localhost:4500/userinvest/dashboard"
-    let url = "http://localhost:4500/userinvest/profilepage"
+    let url1 = "https://propulses.onrender.com/userinvest/dashboard"
+    let url = "https://propulses.onrender.com/userinvest/profilepage"
     const getfile = (e) => {
         const myfile = e.target.files[0];
         const reader = new FileReader();

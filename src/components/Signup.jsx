@@ -42,7 +42,7 @@ const Signup = () => {
             referral: Yup.string()
         }),
         onSubmit: values => {
-            axios.post("http://localhost:4500/userinvest/usersignup", { Firstname: values.firstname, Lastname: values.lastname, Username: values.username, Password: values.password, Email: values.email, Phonenumber: values.phonenumber, Couponcode: values.couponcode, referral: values.referral })
+            axios.post("https://propulses.onrender.com/userinvest/usersignup", { Firstname: values.firstname, Lastname: values.lastname, Username: values.username, Password: values.password, Email: values.email, Phonenumber: values.phonenumber, Couponcode: values.couponcode, referral: values.referral })
                 .then((response) => {
                     swal({
                         title: "",

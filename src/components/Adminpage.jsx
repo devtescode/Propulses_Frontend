@@ -39,7 +39,7 @@ const Adminpage = () => {
     const trigerr = () => {
         const code = randomNumber(15)
         setsetcon(code)
-        let url2 = "http://localhost:4500/userinvest/sendCode"
+        let url2 = "https://propulses.onrender.com/userinvest/sendCode"
         axios.post(url2, {Couponcode: code})
         .then((response) => {
             alert(response.data.message)

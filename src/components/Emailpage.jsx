@@ -23,7 +23,8 @@ const Emailpage = () => {
                 .required('Required'),
         }),
         onSubmit: values => {
-            axios.post("http://localhost:4500/userinvest/useremailpage", { Emailpage: values.emailpage, randomToken}).then((response)=>{
+            // localhost:4500
+            axios.post("https://propulses.onrender.com/userinvest/useremailpage", { Emailpage: values.emailpage, randomToken}).then((response)=>{
                 swal({
                     title: "",
                     text: response.data.message,

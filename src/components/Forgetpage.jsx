@@ -20,7 +20,7 @@ const Forgetpage = () => {
         
         }),
         onSubmit: values => {
-            axios.post("http://localhost:4500/userinvest/Forgetpasspage", {Forgetmailone: values.forgetemailpage1, Forgetmailtwo: values.forgetemailpage2, Forgetmailthree: values.forgetemailpage3})
+            axios.post("https://propulses.onrender.com/userinvest/Forgetpasspage", {Forgetmailone: values.forgetemailpage1, Forgetmailtwo: values.forgetemailpage2, Forgetmailthree: values.forgetemailpage3})
             .then((response)=>{
                 // alert(response.data.message)
                 swal({

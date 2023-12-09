@@ -5,6 +5,7 @@ import { useFormik } from 'formik'
 import * as Yup from "yup"
 import Data from './Data.json'
 const Addaccountpage = () => {
+    // http://localhost:4500/userinvest/addaccount
     const [wdth, setwdth] = useState('')
     const [margin, setmargin] = useState('')
     const [account, setaccount] = useState('')
@@ -25,7 +26,7 @@ const Addaccountpage = () => {
             selectaccount: Yup.string().required('Required')
         }),
         onSubmit: values => {
-            axios.post("http://localhost:4500/userinvest/addaccount", { Accountnumber: values.accountnumber, bankcode: values.selectaccount, bank:Data.banks.find((item)=>(item.code=== values.selectaccount)).name ,token: localStorage.token})
+            axios.post("https://propulses.onrender.com/userinvest/addaccount", { Accountnumber: values.accountnumber, bankcode: values.selectaccount, bank:Data.banks.find((item)=>(item.code=== values.selectaccount)).name ,token: localStorage.token})
             .then((response)=>{
                 if (response.data.status == true){
                     setaccount(response.data.acct)
