@@ -14,6 +14,7 @@ import Profilepage from './components/Profilepage'
 import Withdrawalhistory from './components/Withdrawalhistory'
 import Forgetpage from './components/Forgetpage'
 import Emailpage from './components/Emailpage'
+import Landingpage from './components/Landingpage'
 import Notfound from './components/Notfound'
 function App() {
   let token = localStorage.token
@@ -21,6 +22,7 @@ function App() {
   return (
     <>
     <Routes>
+      <Route path='/' element={<Landingpage/>}/>
       <Route path='signup' element={<Signup/>}/>
       <Route path='login' element={<Signin/>}/>
       <Route path='/admin' element={<Admin/>}/>
