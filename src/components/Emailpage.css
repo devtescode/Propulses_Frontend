@@ -1,0 +1,121 @@
+.mymaildiv {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.mymaileachdiv2,
+.mymaileachdiv {
+    border: 2px solid#5891ff;
+    width: 40%;
+}
+
+.MailBtnStyle {
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.MailBtnStyle2 {
+    width: 50vh !important;
+    padding: 10px;
+    background-color: #5891ff;
+}
+
+
+.mymaileachdiv {
+    background-color: bisque;
+    background-image: url(../assets/mail-sent.avif);
+    background-position: center;
+}
+
+.mailform {
+    --width-of-input: 80vh;
+    --border-height: 1px;
+    --border-before-color: rgba(221, 221, 221, 0.39);
+    --border-after-color: #5891ff;
+    --input-hovered-color: #4985e01f;
+    position: relative;
+    width: var(--width-of-input);
+    margin: auto;
+    top: 30%;
+}
+
+.mailinput {
+    color: black;
+    font-size: 1.3rem;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+    border-bottom: var(--border-height) solid var(--border-before-color);
+}
+
+.input-border1 {
+    position: absolute;
+    background: var(--border-after-color);
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+input:hover {
+    background: var(--input-hovered-color);
+}
+
+input:focus {
+    outline: none;
+}
+
+input:focus~.input-border1 {
+    width: 100%;
+}
+
+@media (max-width:688px) {
+    .mymaildiv {
+        display: block;
+        height: 50vh !important;
+        justify-content: center;
+        margin-top: 5%;
+        width: 100% !important;
+        border: 2px solid#5891ff;
+        border-radius: 15px !important;
+    }
+    .mymaileachdiv2 {
+        width: 100% !important;
+        border: none;
+        margin-top: 10%;
+    }
+    .mymaileachdiv {
+       display: none;
+    }
+    .mailform {
+        --width-of-input: 90%;
+        --border-height: 1px;
+        --border-before-color: rgba(221, 221, 221, 0.39);
+        --border-after-color: #5891ff;
+        --input-hovered-color: #4985e01f;
+        position: relative;
+        width: var(--width-of-input);
+        margin: auto;
+        top: 30%;
+    }
+    .MailBtnStyle2 {
+        width: 30vh !important;
+        padding: 10px;
+        background-color: #5891ff;
+    }
+    .MailBtnStyle {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+}

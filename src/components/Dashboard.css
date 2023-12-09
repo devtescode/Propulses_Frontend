@@ -1,0 +1,53 @@
+.dashboard-bg{
+    background-color: #4F46E5;
+    color: white;
+    text-align: justify;
+}
+
+.styleTop{
+    margin-top: 15px;
+    padding: 5px;
+    width: 200px;
+    height: 150px;
+}
+.styleReferral{
+    margin-left: 5% !important;
+    align-items: center !important;
+}
+
+.displayimgdiv{
+    display: flex;
+    justify-content: center !important;
+    margin-top: 20px;
+}
+
+.imgwidth{
+    width: 70vh;
+    height: 60vh;
+}
+
+@media (max-width:688px) {
+    .displayimgdiv{
+        display: block;
+        text-align: center !important;
+        margin-top: 0px !important;
+    }
+    .imgwidth{
+        width: 95%;
+        height: 40vh;
+        margin-top: 20px;
+    }
+    .eachgrid{
+        margin-left: 0px !important;
+        width: 100vw !important;
+    }
+    .styleTop{
+        margin-top: 15px;
+        padding: 0px;
+        width: 100px;
+        height: 120px;
+    }
+    .styleReferral{
+        margin-left: 3% !important;
+    }
+}

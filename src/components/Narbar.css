@@ -1,0 +1,251 @@
+.gridcont {
+    display: grid;
+    grid-template-columns: repeat(2, 25% 75%);
+    /* border: 2px solid red; */
+    /* overflow-y: 0px; */
+
+}
+
+/* .eachgrid{
+
+} */
+
+.divtogrespon{
+    line-height: 40px;
+    padding: 30px;
+    text-align: center;
+}
+.givebtnwidth{
+    width: 70%;
+    border: none;
+    background-color: #4F46E5;
+    color: white;
+}
+.myoffcanvarespon{
+    width: 25% !important;
+}
+.trigeroffcan{
+    display: contents;
+}
+.navbarprofile{
+    width: 40px;
+    text-align: end !important;
+    height: 40px;
+    background-color: #4F46E5;
+    margin-left: auto;
+    margin-right: 40px; 
+    border-radius: 2rem;
+    background-image: url(../assets/profilebg.png);
+    background-size: cover;
+}
+.navbarprofile2{
+    width: 50px;
+    height: 50px;
+    background-color: #d8d8d8;
+    border-radius: 2rem;
+    background-size: cover;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+}
+.navbardisp {
+    display: none;
+    margin-left: auto;
+    margin-right: 40px; 
+    text-align: end !important;
+    width: 350px;
+    height: 250px;
+    right: 0px;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 9999;
+    background-color: #4e46e5;
+    color: white;
+}
+
+
+.eachcolornarbar{
+    background-color: #4e46e52f;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+
+
+.offcanvastopBTn{
+    border: 1px solid;
+    border: none;
+}
+
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height: 34px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #73C0FC;
+    transition: .4s;
+    border-radius: 30px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    left: 2px;
+    bottom: 2px;
+    z-index: 2;
+    background-color: #e8e8e8;
+    transition: .4s;
+  }
+  
+  .sun .svg {
+    position: absolute;
+    top: 6.2px;
+    left: 40px;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .moon .svg {
+    fill: #73C0FC;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* .switch:hover */.sun .svg {
+    animation: rotate 15s linear infinite;
+  }
+  
+  @keyframes rotate {
+   
+    0% {
+      transform: rotate(0);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* .switch:hover */.moon .svg {
+    animation: tilt 5s linear infinite;
+  }
+  
+  @keyframes tilt {
+   
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    25% {
+      transform: rotate(-10deg);
+    }
+  
+    75% {
+      transform: rotate(10deg);
+    }
+  
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+  .input:checked + .slider {
+    background-color: #183153;
+  }
+  
+  .input:focus + .slider {
+    box-shadow: 0 0 1px #183153;
+  }
+  
+  .input:checked + .slider:before {
+    transform: translateX(30px);
+  }
+@media (max-width: 688px) {
+    .offcanvas {
+        display: none;
+    }
+
+    .offcanvas-button {
+        display: block;
+    }
+
+    .trigeroffcan{
+        display: block;
+    }
+    
+    /* .gridcont {
+        display: block;       
+    } */
+
+    .gridcont {
+        display: grid;
+        grid-template-columns: repeat(2, 0% 100%);
+        
+    }
+    .eachgrid {
+        border: 1px solid;
+        border: none;
+    }
+    .myoffcanvarespon{
+        width: 80% !important;
+    }
+    .navbardisp {
+        margin-left: auto;
+        margin-right: 5px; 
+        text-align: end !important;
+        width: 95%;
+        height: 220px;
+        border-radius: 10px;
+        position: absolute;
+        z-index: auto;
+        color: white;
+    }
+
+    .navbarprofile{
+        margin-right: 0px;  
+    }
+
+    .givebtnwidth{
+        width: 100%;
+        border: none;
+    }
+
+    .offcanvastopBTn{
+        position: absolute;
+        margin-left: 5px;  
+    }
+    .divtogrespon{
+        line-height: 50px;
+        padding: 15px;
+        text-align: center;
+        height: 90vh;
+        overflow-y: auto;  
+    }
+    .resbgcolor{
+        background-color: #4F46E5;
+    }
+}

@@ -1,0 +1,28 @@
+.imgDiv, .imgDiv2{
+    width: 380px;
+    height: 380px;
+    border-radius: 15px;
+}
+.imgDiv{
+    border: 2px solid;
+    border-color: #4F46E5;
+}
+.imgDiv2{
+    background-size: cover;
+    width: 376px;
+    height: 380px;
+    border-radius: 15px;
+}
+
+@media (max-width:688px) {
+    .imgDiv, .imgDiv2{
+        width: 95%;
+        height: 50vh;
+        text-align: center !important;
+    }
+    .imgDiv2{
+        width: 99%;
+        height: 49vh;
+        background-size: cover;
+    }
+}

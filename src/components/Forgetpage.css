@@ -1,0 +1,74 @@
+.mycondiv{
+    display: flex;
+    height: 80vh !important;
+    justify-content: center !important;
+    margin-top: 5%;
+}
+.myeachdiv, .myeachdiv2{
+    border: 2px solid;
+    border-color: #4F46E5;
+    width: 35%;
+}
+
+.forgetinputwidth{
+    width: 95% !important;
+    font-size: 18px !important;
+}
+
+.forgetinputwidthdiv{
+    /* border: 1px solid ; */
+    text-align: center !important;
+}
+
+.myeachdiv2{
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.styleBtn{
+    background-color: #4F46E5;
+
+}
+
+.myeachdiv{
+    background-color: #4F46E5;
+    background-image: url(../assets/forgotpass.avif);
+    background-position: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.taketop{
+    margin-top: 10% !important;
+}
+@media (max-width:688px) {
+    .fordivone{
+        width: 100%;
+    }
+    .mycondiv{
+        display: block;
+        margin-top: 10%;
+        height: 70vh !important;
+        margin-top: 30%;
+       
+    }
+    .forgetinputwidth{
+        width: 100% !important;
+        font-size: 18px !important;
+    }
+    .myeachdiv2{
+        padding: 20px;
+    }
+    .myeachdiv, .myeachdiv2{
+        border-color: #4F46E5;
+        background-color: whitesmoke;
+        border-radius: 10px;
+        width: 100%;
+    }
+    .myeachdiv{
+        display: none;
+    }
+    .taketop{
+        margin-top: 5% !important;
+    }
+}
