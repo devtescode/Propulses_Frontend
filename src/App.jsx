@@ -21,7 +21,7 @@ function App() {
   let admintoken = localStorage.admintoken
   return (
     <>
-    <Routes>
+    <Routes basename="/my-app">
       <Route path='/' element={<Landingpage/>}/>
       <Route path='signup' element={<Signup/>}/>
       <Route path='login' element={<Signin/>}/>
