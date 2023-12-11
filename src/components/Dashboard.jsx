@@ -60,10 +60,10 @@ const Dashboard = () => {
             <div className='eachgrid' style={{ width: wdth + 'vw', marginLeft: margin + 'vw' }}>
                 <div className='p-3 d-flex'>
                     <div>
-                        <h4 style={{color:localStorage.mode=="black"?'white':'black'}}>Welcome Back,</h4>
+                        <h5 style={{color:localStorage.mode=="black"?'white':'black'}}>Welcome Back,</h5>
                     </div>
-                    <div className='mx-2'>
-                        <h4 style={{color:localStorage.mode=="black"?'white':'black'}}>{user && user?.Username}</h4>
+                    <div className='mx-1'>
+                        <h5 style={{color:localStorage.mode=="black"?'white':'black'}}>{user && user?.Username}</h5>
                     </div>
                 </div>
                 <div class="container text-center">
