@@ -54,15 +54,15 @@ const Narvarbar = ({ user }) => {
     if(!localStorage.mode){
         localStorage.setItem('mode', 'white');
     }
-    const inputBtn = () => {
-        if (localStorage.mode=="white") {
-            localStorage.setItem('mode', 'black')
+    // const inputBtn = () => {
+    //     if (localStorage.mode=="white") {
+    //         localStorage.setItem('mode', 'black')
 
-        } else if (localStorage.mode=="black") {
-            localStorage.setItem('mode', 'white');
-        }
-        location.reload()
-    }
+    //     } else if (localStorage.mode=="black") {
+    //         localStorage.setItem('mode', 'white');
+    //     }
+    //     location.reload()
+    // }
 
     const logOut=()=>{
         swal({
@@ -151,7 +151,7 @@ const Narvarbar = ({ user }) => {
                         </div>
                         <hr />
                         <div className='d-flex justify-content-between px-3 p-2'>
-                            <b>Dark mode</b>
+                            {/* <b>Dark mode</b>
                             <div>
                                 <label class="switch" >
                                     <span class="sun"><i class="ri-sun-fill svg"></i></span>
@@ -159,7 +159,7 @@ const Narvarbar = ({ user }) => {
                                     <input type="checkbox" class="input" id='changmode' />
                                     <span class="slider border" onClick={inputBtn}></span>
                                 </label>
-                            </div>
+                            </div> */}
                         </div>
                         <hr />
                         <div className='text-start px-3 p-2 fw-bold' onClick={logOut} style={{cursor:"pointer"}}>
