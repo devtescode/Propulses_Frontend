@@ -27,7 +27,7 @@ const Signin = () => {
                     icon: "warning",
                     button: "Aww yiss!",
                 });
-                if (response.data.status == true) {
+                if (response.data.status === true) {
                     localStorage.token = response.data.token
                     swal({
                         title: "",
@@ -35,6 +35,7 @@ const Signin = () => {
                         icon: "success",
                         button: "Okay",
                     });
+                    console.log(response);
                     navigate("/dashboard")
                     localStorage.setItem("useradminlogin", true)
 
