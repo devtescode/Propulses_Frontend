@@ -9,6 +9,9 @@ const Landingpage = () => {
   const LandingLoginBtn = () => {
     navigate("/login")
   }
+  const AdminBtn=()=>{
+    navigate("/admin")
+  }
   return (
     <>
     
@@ -28,6 +31,9 @@ const Landingpage = () => {
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onClick={AdminBtn}>Admin</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
