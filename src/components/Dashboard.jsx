@@ -135,7 +135,7 @@ const Dashboard = () => {
                     <label class="fw-bold bg-body-tertiary p-2 border border-2 rounded-2 bg-success">Referral Link</label>
                     <div class="">
                         <Link to={"/signup?referralcode=" + user.Username}>
-                            <input type="text" class="form-control shadow p-2" value={"http://localhost:5173/signup/?referralcode=" + user.Username} />
+                            <input type="text" class="form-control shadow p-2" value={"https://propulses.onrender.com/signup/?referralcode=" + user.Username} />
                         </Link>
                     </div>
                 </div>

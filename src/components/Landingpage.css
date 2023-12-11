@@ -1,0 +1,34 @@
+.NavberImg{
+    background-image: url(../assets/P-logo.avif);
+    background-position: center;
+    background-size: cover;
+    width: 80px;
+    height: 50px;
+    border-radius: 10px;
+    /* margin-left: 70px; */
+}
+.landivone{
+    /* background-color: #4F46E5; */
+    background-color: aquamarine;
+    height: 87vh;
+    display: flex;
+}
+.landiveachone, .landiveachtwo{
+   
+    width: 100%;
+}
+.landiveachone{
+    /* text-align: justify; */
+    text-align: start;
+    /* margin: auto; */
+    /* border: 2px solid; */
+}
+.textstylewelcome{
+    text-align: center; 
+    width: 80%;   
+}
+.textstyleStart{
+    /* border: 2px solid; */
+    width: 80%;   
+    text-align: justify !important;
+}
