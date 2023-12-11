@@ -144,7 +144,7 @@ const Narvarbar = ({ user }) => {
                                 <p className='text-white fw-bold text-center mt-2'>{user && user?.Username}</p>
                             </div>
                             <div>
-                                <span className='fw-bold mx-2'>{user && user?.Firstname}</span>
+                                <span className='fw-bold'>{user && user?.Firstname}</span>
                                 <span className='fw-bold'>{user && user?.Lastname}</span>
                                 <h6>{user && user?.Email}</h6>
                             </div>
