@@ -14,8 +14,8 @@ const Landingpage = () => {
     <div>Landingpage</div>
     <button className='btn btn-success' onClick={LandingRegisterBTn}>Register</button>
     <button className='btn btn-dark' onClick={LandingLoginBtn}>Login</button>
-    
+    </>
   )
 }
 
-export default Landingpage
+export default Landingpage;
