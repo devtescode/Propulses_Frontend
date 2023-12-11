@@ -88,14 +88,12 @@ const Signin = () => {
                                     Sign In
                                 </button>
                             </div>
-                            <div className='containerdisp justify-content-between'>
-                                <div className='d-flex'>
-                                    <div>
-                                        <p>Don't have an account</p>
-                                    </div>
-                                    <div className='mx-1'>
-                                        <p className='signincolor fw-bold' onClick={linksignup}>Signup</p>
-                                    </div>
+                            <div className='text-center'>
+                                <div className=''>
+                                    <div className=''>
+                                        <span>Don't have an account?</span>
+                                        <span className='signincolor fw-bold mx-1' onClick={linksignup}>Signup</span>
+                                    </div>                                    
                                 </div>
                                 <div>
                                     <p className='fw-bold' onClick={forgetpassBtn} style={{ cursor: "pointer" }}>forget password</p>
