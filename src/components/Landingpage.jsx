@@ -11,8 +11,7 @@ const Landingpage = () => {
   }
   return (
     <>
-      {/* <button className='btn btn-success' onClick={LandingRegisterBTn}>Register</button>
-      <button className='btn btn-dark' onClick={LandingLoginBtn}>Login</button> */}
+    
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid px-2 px-md-5 p-2">
           <a class="navbar-brand bg-success NavberImg" href="#"></a>
@@ -39,14 +38,24 @@ const Landingpage = () => {
       </nav>
       <div className='landivone'>
         <div className='landiveachone'>
-          <div className='textstylewelcome'>
-            <h3>Welcome to Propulses where your financial aspirations take flight!</h3>
+          <div className='mx-5'>
+            <div className='textstylewelcome'>
+              <h3 className='fw-bold'>Welcome to Propulses where your financial aspirations take flight!</h3>
+            </div>
+            <div className='text-center mt-3 textstyleStart'>
+              <p className='fs-5 fw-bold'>Start your investment journey with Propulses and receive an instant $4 bonus! Plus, boost your earnings by referring friends. It's not just an investment; it's a lucrative community. Join now and watch your wealth grow!</p>
+            </div>
+          <div>
+              <button className='landBtnstyle btn btn-dark' onClick={LandingRegisterBTn}>Register</button>
+              <button className='landBtnstyle btn btn-dark mx-2' onClick={LandingLoginBtn}>Login</button>
           </div>
-          <div className='text-center mt-5 textstyleStart'>
-            <p>Start your investment journey with Propulses and receive an instant $4 bonus! Plus, boost your earnings by referring friends. It's not just an investment; it's a lucrative community. Join now and watch your wealth grow!</p>
           </div>
         </div>
-        <div className='landiveachtwo'>2</div>
+        <div className='landiveachtwo'>
+          <div className='landiveachtwoImg'>
+            
+          </div>
+        </div>
       </div>
     </>
   )

@@ -1,34 +1,76 @@
-.NavberImg{
+.NavberImg {
     background-image: url(../assets/P-logo.avif);
     background-position: center;
     background-size: cover;
     width: 80px;
     height: 50px;
     border-radius: 10px;
-    /* margin-left: 70px; */
 }
-.landivone{
-    /* background-color: #4F46E5; */
-    background-color: aquamarine;
+
+.landivone {
+    /* background-color: aquamarine; */
     height: 87vh;
     display: flex;
 }
-.landiveachone, .landiveachtwo{
-   
+
+.landiveachone,
+.landiveachtwo {
     width: 100%;
 }
-.landiveachone{
-    /* text-align: justify; */
-    text-align: start;
-    /* margin: auto; */
-    /* border: 2px solid; */
+
+.landiveachone {
+    align-items: center !important;
+    display: flex;
 }
-.textstylewelcome{
-    text-align: center; 
-    width: 80%;   
-}
-.textstyleStart{
-    /* border: 2px solid; */
-    width: 80%;   
+
+.textstylewelcome {
+    width: 80%;
     text-align: justify !important;
+}
+
+.textstyleStart {
+    width: 80%;
+    text-align: justify !important;
+}
+.landBtnstyle{
+    background-color: #4F46E5;
+}
+
+.landiveachtwo{
+    /* border: 2px solid; 
+    background-color: aliceblue; */
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+}
+.landiveachtwoImg{
+    background-color: aliceblue;
+    /* border: 1px solid;  */
+    height: 85vh;
+    width: 85%;
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 20rem;
+    background-image: url(../assets/Banknote.gif);
+    background-position: center;
+    background-size: cover;
+}
+@media (max-width:688px) {
+    .landivone {
+        /* background-color: #4F46E5; */
+        height: 87vh;
+        display: block;
+    }
+
+    .textstylewelcome {
+        margin-top: 20px;
+        width: 100%;
+        text-align: center !important;
+    }
+
+    .textstyleStart {
+        width: 100%;
+        text-align: center !important;
+    }
 }
