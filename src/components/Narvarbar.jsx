@@ -54,15 +54,15 @@ const Narvarbar = ({ user }) => {
     if(!localStorage.mode){
         localStorage.setItem('mode', 'white');
     }
-    const inputBtn = () => {
-        if (localStorage.mode=="white") {
-            localStorage.setItem('mode', 'black')
+    // const inputBtn = () => {
+    //     if (localStorage.mode=="white") {
+    //         localStorage.setItem('mode', 'black')
 
-        } else if (localStorage.mode=="black") {
-            localStorage.setItem('mode', 'white');
-        }
-        location.reload()
-    }
+    //     } else if (localStorage.mode=="black") {
+    //         localStorage.setItem('mode', 'white');
+    //     }
+    //     location.reload()
+    // }
 
     const logOut=()=>{
         swal({
