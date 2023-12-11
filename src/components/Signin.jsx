@@ -19,50 +19,50 @@ const Signin = () => {
                 .required('Required'),
         }),
         onSubmit: values => {
-            axios.post("https://propulses.onrender.com/userinvest/usersignin", {Username: values.username, Password: values.password})
-            .then((response) => {
-                swal({
-                    title: "",
-                    text: response.data.message,
-                    icon: "warning",
-                    button: "Aww yiss!",
-                });
-                if (response.data.status === true) {
-                    localStorage.token = response.data.token
+            axios.post("https://propulses.onrender.com/userinvest/usersignin", { Username: values.username, Password: values.password })
+                .then((response) => {
                     swal({
                         title: "",
                         text: response.data.message,
-                        icon: "success",
-                        button: "Okay",
+                        icon: "warning",
+                        button: "Aww yiss!",
                     });
-                    console.log(response);
-                    navigate("/dashboard")
-                    localStorage.setItem("useradminlogin", true)
+                    if (response.data.status === true) {
+                        localStorage.token = response.data.token
+                        swal({
+                            title: "",
+                            text: response.data.message,
+                            icon: "success",
+                            button: "Okay",
+                        });
+                        console.log(response);
+                        navigate("/dashboard")
+                        localStorage.setItem("useradminlogin", true)
 
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-                swal({
-                    title: "",
-                    text: response.data.message,
-                    icon: "error",
-                    button: "Aww yiss!",
-                });
-            })  
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                    swal({
+                        title: "",
+                        text: response.data.message,
+                        icon: "error",
+                        button: "Aww yiss!",
+                    });
+                })
         }
     })
-    const linksignup=()=>{
+    const linksignup = () => {
         navigate("/signup")
     }
-    const forgetpassBtn=()=>{
+    const forgetpassBtn = () => {
         navigate("/emailpage")
     }
     return (
         <>
-        <form autoComplete='on' onSubmit={formik.handleSubmit}>
+            <form autoComplete='on' onSubmit={formik.handleSubmit}>
                 <div className='contfirstdiv'>
-                <div className="mycontsec">
+                    <div className="mycontsec">
                         <div className='p-4 text-white'>
                             Home
                         </div>
@@ -98,7 +98,7 @@ const Signin = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <p className='fw-bold' onClick={forgetpassBtn} style={{cursor:"pointer"}}>forget password</p>
+                                    <p className='fw-bold' onClick={forgetpassBtn} style={{ cursor: "pointer" }}>forget password</p>
                                 </div>
                             </div>
                         </div>
