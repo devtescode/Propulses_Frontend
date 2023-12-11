@@ -12,7 +12,7 @@ const Adminpage = () => {
     function randomNumber(length) {
         return Math.floor(Math.pow(10, length - 1) + Math.random() * (Math.pow(10, length) - Math.pow(10, length - 1) - 1));
     }
-    let url = "http://localhost:4500/userinvest/useradmincoupon"
+    let url = "https://propulses.onrender.com/userinvest/useradmincoupon"
     let admintoken = localStorage.admintoken
     let navigate = useNavigate()
     useEffect(()=>{
