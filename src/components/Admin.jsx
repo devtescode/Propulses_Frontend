@@ -61,7 +61,7 @@ const Admin = () => {
                             </div>
 
                             <div class="input-container">
-                                <input type="type" onChange={formik.handleChange} name='password' value={formik.values.password} className='w-100' placeholder="Password" />
+                                <input type="password" onChange={formik.handleChange} name='password' value={formik.values.password} className='w-100' placeholder="Password" />
                             </div>
                             <div className='text-end text-danger'>
                                 {formik.errors.password}
