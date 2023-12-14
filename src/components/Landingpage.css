@@ -61,6 +61,9 @@
 .ptagstyle{
     font-weight: 600;
 }
+.landpadding{
+    padding: 40px;
+}
 @media (max-width:688px) {
     .landivone {
         /* background-color: #4F46E5; */
@@ -88,5 +91,8 @@
         width: 100%;
         background-repeat: no-repeat !important;
         background-size: contain;
+    }
+    .landpadding{
+        padding: 10px;
     }
 }

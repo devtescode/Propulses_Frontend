@@ -44,7 +44,7 @@ const Landingpage = () => {
       </nav>
       <div className='landivone'>
         <div className='landiveachone'>
-          <div className='mx-5'>
+          <div className='col-md-11 col-sm-11 landpadding'>
             <div className='textstylewelcome'>
               <h1 className='fw-bold'>Welcome to Propulses where your financial aspirations take flight!</h1>
             </div>
