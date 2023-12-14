@@ -44,17 +44,17 @@
     justify-content: center !important;
 }
 .landiveachtwoImg{
-    background-color: aliceblue;
-    /* border: 1px solid;  */
+    background-color: #4F46E5;
+    /* border: 2px solid;  */
     height: 85vh;
     width: 85%;
     display: flex;
     align-items: center !important;
     justify-content: center !important;
-    border-radius: 20rem;
+    border-radius: 15rem;
     background-image: url(../assets/Banknote.gif);
-    background-position: center;
-    background-size: cover;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
 @media (max-width:688px) {
     .landivone {
@@ -78,5 +78,7 @@
         /* border: 2px solid; */
         height: 60vh;
         width: 100%;
+        background-repeat: no-repeat !important;
+        background-size: contain;
     }
 }
