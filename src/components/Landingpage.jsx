@@ -15,7 +15,7 @@ const Landingpage = () => {
   return (
     <>
     
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid px-2 px-md-5 p-2">
           <a class="navbar-brand bg-success NavberImg" href="#"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

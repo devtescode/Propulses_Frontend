@@ -11,6 +11,8 @@
     /* background-color: aquamarine; */
     height: 87vh;
     display: flex;
+    position: absolute;
+    top: 13%;
 }
 
 .landiveachone,
@@ -61,6 +63,8 @@
         /* background-color: #4F46E5; */
         height: 87vh;
         display: block;
+        position: absolute;
+        top: 14%;
     }
 
     .textstylewelcome {
@@ -75,7 +79,6 @@
     }
     .landiveachtwoImg{
         margin-top: 30px;
-        /* border: 2px solid; */
         height: 60vh;
         width: 100%;
         background-repeat: no-repeat !important;
