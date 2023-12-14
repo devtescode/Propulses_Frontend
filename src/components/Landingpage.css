@@ -26,8 +26,8 @@
 }
 
 .textstylewelcome {
-    width: 80%;
-    text-align: justify !important;
+    width: 100% !important;
+    /* text-align: justify !important; */
 }
 
 .textstyleStart {
