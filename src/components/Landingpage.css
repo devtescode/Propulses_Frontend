@@ -70,7 +70,9 @@
     .textstylewelcome {
         margin-top: 20px;
         width: 100% !important;
-        text-align: center !important;
+        /* text-align: center !important; */
+        font-size: 40px !important;
+
     }
 
     .textstyleStart {
