@@ -49,7 +49,7 @@ const Landingpage = () => {
               <h1 className='fw-bold'>Welcome to Propulses where your financial aspirations take flight!</h1>
             </div>
             <div className='text-center mt-3 textstyleStart'>
-              <p className='fs-5 fw-bold'>Start your investment journey with Propulses and receive an instant $4 bonus! Plus, boost your earnings by referring friends. It's not just an investment; it's a lucrative community. Join now and watch your wealth grow!</p>
+              <p className='fs-5 ptagstyle'>Start your investment journey with Propulses and receive an instant $4 bonus! Plus, boost your earnings by referring friends. It's not just an investment; it's a lucrative community. Join now and watch your wealth grow!</p>
             </div>
           <div>
               <button className='landBtnstyle btn btn-dark' onClick={LandingRegisterBTn}>Register</button>

@@ -58,6 +58,9 @@
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
+.ptagstyle{
+    font-weight: 600;
+}
 @media (max-width:688px) {
     .landivone {
         /* background-color: #4F46E5; */
