@@ -19,7 +19,7 @@ const Withdrawalhistory = () => {
         const fetchWithdrawalHistory = async () => {
             try {
                 const token = localStorage.token;
-                const response = await axios.get('http://localhost:4500/userinvest/withdrawalhistroy', {
+                const response = await axios.get('https://propulses.onrender.com/userinvest/withdrawalhistroy', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

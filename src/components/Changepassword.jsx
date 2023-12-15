@@ -13,10 +13,7 @@ const Changepassword = () => {
             setmargin(localStorage.margin)
         }
     })
-    let url = "http://localhost:4500/userinvest/changepassword"
-
-    let token = localStorage.token
-
+   
     const formik = useFormik({
         initialValues: {
             currencypass: "",
