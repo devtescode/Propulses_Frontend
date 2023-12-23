@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Signin.css"
 import { useFormik } from 'formik'
 import * as Yup from "yup"
@@ -10,12 +10,15 @@ const Signin = () => {
     localStorage.removeItem("useradminlogin")
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false);
-
+    useEffect(() => {
+        window.location.reload();
+    }, []);
     const formik = useFormik({
         initialValues: {
             username: "",
             password: "",
         },
+
         validationSchema: Yup.object({
             username: Yup.string()
                 .required('Required'),
@@ -23,8 +26,6 @@ const Signin = () => {
                 .required('Required'),
         }),
         onSubmit: values => {
-
-
             setLoading(true);
             let successMessage, errorMessage;
             axios.post("https://propulses.onrender.com/userinvest/usersignin", { Username: values.username, Password: values.password })
