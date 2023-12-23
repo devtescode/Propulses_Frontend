@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { useState} from 'react'
 import "./Signup.css"
 import { useFormik } from 'formik'
 import * as Yup from "yup"
 import axios from 'axios'
 import { useNavigate } from 'react-router'
 import { useSearchParams } from 'react-router-dom'
-
+import Loader from './Loader'
 
 const Signup = () => {
     const navigate = useNavigate()
     const [serchParams, setserchParams] = useSearchParams()
     const token = serchParams.get("referralcode")
-
-
+    const [loading, setLoading] = useState(false);
+    
     const formik = useFormik({
         initialValues: {
             firstname: "",
@@ -42,42 +42,56 @@ const Signup = () => {
             referral: Yup.string()
         }),
         onSubmit: values => {
-            axios.post("https://propulses.onrender.com/userinvest/usersignup", { Firstname: values.firstname, Lastname: values.lastname, Username: values.username, Password: values.password, Email: values.email, Phonenumber: values.phonenumber, Couponcode: values.couponcode, referral: values.referral })
+            setLoading(true);
+            let successMessage, errorMessage;
+            axios.post("http://localhost:4500/userinvest/usersignup", { Firstname: values.firstname, Lastname: values.lastname, Username: values.username, Password: values.password, Email: values.email, Phonenumber: values.phonenumber, Couponcode: values.couponcode, referral: values.referral })
                 .then((response) => {
-                    swal({
-                        title: "",
-                        text: response.data.message,
-                        icon: "warning",
-                        button: "Aww yiss!",
-                    });
-                    if (response.data.status == true) {
+                    successMessage = response.data.message;
+                    errorMessage = response.data.message;
+                    setTimeout(() => {
                         swal({
-                            title: "Success",
-                            text: response.data.message,
-                            icon: "success",
-                            button: "Okay",
+                            title: "",
+                            text: successMessage,
+                            icon: response.data.status ? "success" : "warning",
+                            button: response.data.status ? "Okay" : "Aww yiss!",
                         });
-                        navigate("/login")
-                    }
-                }).catch((err) => {
-                    console.log(err);
-                    swal({
-                        title: "",
-                        text: response.data.message,
-                        icon: "error",
-                        button: "Aww yiss!",
-                    });
+                        if (response.data.status == true) {
+                            // swal({
+                            //     title: "Success",
+                            //     text: response.data.message,
+                            //     icon: "success",
+                            //     button: "Okay",
+                            // });
+                            navigate("/login")
+                        }
+                    }, 6000)
                 })
+                .catch((err) => {
+                    console.log(err);
+                    errorMessage = err.response ? err.response.data.message : "An error occurred";
+                    setTimeout(() => {
+                        swal({
+                            title: "",
+                            text: errorMessage,
+                            icon: "error",
+                            button: "Aww yiss!",
+                        });
+                    }, 6000);
+                })
+            setTimeout(() => {
+                setLoading(false);
+            }, 6000);
         }
-
     })
     const linksignin = () => {
         navigate("/login")
     }
+    
 
 
     return (
         <>
+            {loading && <Loader />}
             <form action="" onSubmit={formik.handleSubmit}>
                 <div className='contfirstdiv'>
                     <div className="mycontsec">
@@ -157,7 +171,7 @@ const Signup = () => {
                                     </div>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>

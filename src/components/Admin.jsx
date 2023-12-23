@@ -19,7 +19,7 @@ const Admin = () => {
 
         }),
         onSubmit: values => {
-            axios.post("https://propulses.onrender.com/userinvest/useradmin", { Username: values.username, Password: values.password })
+            axios.post("http://localhost:4500/userinvest/useradmin", { Username: values.username, Password: values.password })
                 .then((response) => {
                     swal({
                         title: "",

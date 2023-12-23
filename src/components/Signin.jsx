@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Signin.css"
 import { useFormik } from 'formik'
 import * as Yup from "yup"
 import axios from 'axios'
 import { useNavigate } from 'react-router'
+import Loader from './Loader'
+
 const Signin = () => {
     localStorage.removeItem("useradminlogin")
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false);
+
     const formik = useFormik({
         initialValues: {
             username: "",
@@ -19,38 +23,57 @@ const Signin = () => {
                 .required('Required'),
         }),
         onSubmit: values => {
-            axios.post("https://propulses.onrender.com/userinvest/usersignin", { Username: values.username, Password: values.password })
+
+
+            setLoading(true);
+            let successMessage, errorMessage;
+            axios.post("http://localhost:4500/userinvest/usersignin", { Username: values.username, Password: values.password })
                 .then((response) => {
-                    swal({
-                        title: "",
-                        text: response.data.message,
-                        icon: "warning",
-                        button: "Aww yiss!",
-                    });
-                    if (response.data.status === true) {
-                        localStorage.token = response.data.token
+                    successMessage = response.data.message;
+                    errorMessage = response.data.message;
+                    setTimeout(() => {
                         swal({
                             title: "",
-                            text: response.data.message,
-                            icon: "success",
-                            button: "Okay",
+                            text: successMessage,
+                            icon: response.data.status ? "success" : "warning",
+                            button: response.data.status ? "Okay" : "Aww yiss!",
                         });
-                        console.log(response);
-                        navigate("/dashboard")
-                        localStorage.setItem("useradminlogin", true)
+                        if (response.data.status === true) {
+                            localStorage.token = response.data.token
+                            // setTimeout(() => {
+                            //     swal({
+                            //         title: "",
+                            //         text: response.data.message,
+                            //         icon: "success",
+                            //         button: "Okay",
+                            //     });
+                            // }, 1000);
+                            console.log(response);
+                            navigate("/dashboard")
+                            localStorage.setItem("useradminlogin", true)
 
-                    }
+                        }
+                    }, 6000);
+
                 })
                 .catch((err) => {
                     console.log(err);
-                    swal({
-                        title: "",
-                        text: response.data.message,
-                        icon: "error",
-                        button: "Aww yiss!",
-                    });
+                    errorMessage = err.response ? err.response.data.message : "An error occurred";
+
+                    setTimeout(() => {
+                        swal({
+                            title: "",
+                            text: errorMessage,
+                            icon: "error",
+                            button: "Aww yiss!",
+                        });
+                    }, 6000);
                 })
-        }
+                
+                setTimeout(() => {
+                    setLoading(false);
+                }, 6000);
+            }
     })
     const linksignup = () => {
         navigate("/signup")
@@ -60,6 +83,7 @@ const Signin = () => {
     }
     return (
         <>
+            {loading && <Loader />}
             <form autoComplete='on' onSubmit={formik.handleSubmit}>
                 <div className='contfirstdiv'>
                     <div className="mycontsec">
@@ -93,7 +117,7 @@ const Signin = () => {
                                     <div className=''>
                                         <span>Don't have an account?</span>
                                         <span className='signincolor fw-bold mx-1' onClick={linksignup}>Signup</span>
-                                    </div>                                    
+                                    </div>
                                 </div>
                                 <div>
                                     <p className='fw-bold' onClick={forgetpassBtn} style={{ cursor: "pointer" }}>forget password</p>
