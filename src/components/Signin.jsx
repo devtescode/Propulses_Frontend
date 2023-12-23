@@ -11,7 +11,7 @@ const Signin = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false);
     useEffect(() => {
-        window.location.reload();
+        window.location.onload();
     }, []);
     const formik = useFormik({
         initialValues: {
