@@ -100,7 +100,7 @@ const Narvarbar = ({ user }) => {
                                 </div>
 
                                 <div>
-                                    <button className='my-4 p-1 givebtnwidth border border-2 rounded-3' onClick={changepassBtn}>Change Password</button>
+                                    <button className='my-4 p-1 givebtnwidth border border-2 rounded-3' onClick={changepassBtn}>Password</button>
                                 </div>
 
                                 <div>
@@ -117,11 +117,11 @@ const Narvarbar = ({ user }) => {
 
 
                                 <div>
-                                    <button className='my-4 p-1 givebtnwidth border border-2 rounded-3' onClick={ReferralBtn}>Referral Withdrawal</button>
+                                    <button className='my-4 p-1 givebtnwidth border border-2 rounded-3' onClick={ReferralBtn}>Withdrawal</button>
                                 </div>
 
                                 <div>
-                                    <button onClick={withdrawHisBtn} className='my-4 p-1 givebtnwidth border border-2 rounded-3'>Withdrawal History</button>
+                                    <button onClick={withdrawHisBtn} className='my-4 p-1 givebtnwidth border border-2 rounded-3'>History</button>
                                 </div>
                             </div>
                         </div>
