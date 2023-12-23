@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import "./Signup.css"
 import { useFormik } from 'formik'
 import * as Yup from "yup"
@@ -44,7 +44,7 @@ const Signup = () => {
         onSubmit: values => {
             setLoading(true);
             let successMessage, errorMessage;
-            axios.post("https://propulses.onrender.com/userinvest/usersignup", { Firstname: values.firstname, Lastname: values.lastname, Username: values.username, Password: values.password, Email: values.email, Phonenumber: values.phonenumber, Couponcode: values.couponcode, referral: values.referral })
+            axios.post("http://localhost:4500/userinvest/usersignup", { Firstname: values.firstname, Lastname: values.lastname, Username: values.username, Password: values.password, Email: values.email, Phonenumber: values.phonenumber, Couponcode: values.couponcode, referral: values.referral })
                 .then((response) => {
                     successMessage = response.data.message;
                     errorMessage = response.data.message;
@@ -62,6 +62,7 @@ const Signup = () => {
                             //     icon: "success",
                             //     button: "Okay",
                             // });
+                            
                             navigate("/login")
                         }
                     }, 6000)

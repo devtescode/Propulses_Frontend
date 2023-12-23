@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Signin.css"
 import { useFormik } from 'formik'
 import * as Yup from "yup"
@@ -7,10 +7,20 @@ import { useNavigate } from 'react-router'
 import Loader from './Loader'
 
 const Signin = () => {
+    useEffect(() => {
+        if (localStorage.reload){
+        }
+        else{
+            localStorage.setItem('reload', 'true')
+            window.location.reload()
+        }
+    }, [])
+    // localStorage.setItem('reload', 'true')
+    
     localStorage.removeItem("useradminlogin")
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false);
-    
+
     const formik = useFormik({
         initialValues: {
             username: "",
@@ -26,7 +36,7 @@ const Signin = () => {
         onSubmit: values => {
             setLoading(true);
             let successMessage, errorMessage;
-            axios.post("https://propulses.onrender.com/userinvest/usersignin", { Username: values.username, Password: values.password })
+            axios.post("http://localhost:4500/userinvest/usersignin", { Username: values.username, Password: values.password })
                 .then((response) => {
                     successMessage = response.data.message;
                     errorMessage = response.data.message;
@@ -39,20 +49,8 @@ const Signin = () => {
                         });
                         if (response.data.status === true) {
                             localStorage.token = response.data.token
-                            // setTimeout(() => {
-                            //     swal({
-                            //         title: "",
-                            //         text: response.data.message,
-                            //         icon: "success",
-                            //         button: "Okay",
-                            //     });
-                            // }, 1000);
-                        
-                            // window.reload();
-                            console.log(response);
                             navigate("/dashboard")
                             localStorage.setItem("useradminlogin", true)
-
                         }
                     }, 6000);
 
@@ -70,11 +68,11 @@ const Signin = () => {
                         });
                     }, 6000);
                 })
-                
-                setTimeout(() => {
-                    setLoading(false);
-                }, 6000);
-            }
+
+            setTimeout(() => {
+                setLoading(false);
+            }, 6000);
+        }
     })
     const linksignup = () => {
         navigate("/signup")

@@ -19,6 +19,10 @@ import Notfound from './components/Notfound'
 function App() {
   let token = localStorage.token
   let admintoken = localStorage.admintoken
+
+    // localStorage.removeItem('reload')
+ 
+
   return (
     <>
     <Routes basename="/my-app">
