@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useFormik } from 'formik'
 import * as Yup from "yup"
 import axios from 'axios'
@@ -19,7 +19,7 @@ const Admin = () => {
 
         }),
         onSubmit: values => {
-            axios.post("http://localhost:4500/userinvest/useradmin", { Username: values.username, Password: values.password })
+            axios.post("https://propulses.onrender.com/userinvest/useradmin", { Username: values.username, Password: values.password })
                 .then((response) => {
                     swal({
                         title: "",
