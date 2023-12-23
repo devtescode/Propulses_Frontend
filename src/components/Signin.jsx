@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect} from 'react'
 import "./Signin.css"
 import { useFormik } from 'formik'
 import * as Yup from "yup"
@@ -47,7 +47,8 @@ const Signin = () => {
                             //         button: "Okay",
                             //     });
                             // }, 1000);
-                            window.location.reload();
+                        
+                            window.reload();
                             console.log(response);
                             navigate("/dashboard")
                             localStorage.setItem("useradminlogin", true)
