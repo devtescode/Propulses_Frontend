@@ -48,7 +48,7 @@ const Signin = () => {
                             //     });
                             // }, 1000);
                         
-                            window.reload();
+                            // window.reload();
                             console.log(response);
                             navigate("/dashboard")
                             localStorage.setItem("useradminlogin", true)
