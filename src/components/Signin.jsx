@@ -10,9 +10,7 @@ const Signin = () => {
     localStorage.removeItem("useradminlogin")
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false);
-    useEffect(() => {
-        window.location.onload();
-    }, []);
+    
     const formik = useFormik({
         initialValues: {
             username: "",
@@ -49,6 +47,7 @@ const Signin = () => {
                             //         button: "Okay",
                             //     });
                             // }, 1000);
+                            window.location.reload();
                             console.log(response);
                             navigate("/dashboard")
                             localStorage.setItem("useradminlogin", true)
