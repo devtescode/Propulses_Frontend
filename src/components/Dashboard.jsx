@@ -13,10 +13,11 @@ const Dashboard = () => {
     const navigate = useNavigate()
     let url = "https://propulses.onrender.com/userinvest/dashboard"
     useEffect(() => {
-      setTimeout(() => {
-          navigate("/login")
-        },50000000);
-    },)
+        setTimeout(() => {
+            // alert("login expired you are allow to login again")
+            navigate("/login")
+        },500000);
+    },[])
     
     const [user, setUser] = useState("")
     useEffect(() => {
