@@ -53,6 +53,7 @@ const Addaccountpage = () => {
     return (
         <>
             <Narvarbar />
+            <div className='divTopchangepass'></div>
             <div className='eachgrid' style={{ width: wdth + 'vw', marginLeft: margin + 'vw' }}>
                 <form onSubmit={formik.handleSubmit}>
                     <div className='container'>

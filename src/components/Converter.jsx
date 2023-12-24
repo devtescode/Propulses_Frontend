@@ -37,10 +37,11 @@ const Converter = () => {
     return (
         <>
             <Narvarbar />
-            <div className='eachgrid' style={{ width: wdth + 'vw', marginLeft: margin + 'vw' }}>
+            <div className='divTopchangepass'></div>
+            <div className='divpassword' style={{ width: wdth + 'vw', marginLeft: margin + 'vw' }}>
                 <div className='container'>
                     <div className="row">
-                        <div style={{backgroundColor:localStorage.mode=="black"?'white':'white'}} className="col-md-6 col-sm-12 shadow-lg border border-2 rounded-3 p-3 mx-auto text-center mt-5 input-container">
+                        <div style={{backgroundColor:localStorage.mode=="black"?'white':'white'}} className="col-md-6 col-sm-12 shadow-lg border border-2 rounded-3 p-3 mx-auto text-center input-container changepasscont">
                             <p className='fw-bold text-start'>Converter</p>
                             <input id="dollarsInput" class='w-100 my-2 p-3' placeholder='Enter Amount In Dollars' type="text" />
                             <input id="nairaOutput" class='w-100 my-2 form-control p-3 text-center' disabled placeholder='Check Out Amount In Naira' type="text" readonly />

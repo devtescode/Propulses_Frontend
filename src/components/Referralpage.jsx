@@ -45,11 +45,12 @@ const Referralpage = () => {
     return (
         <>
             <Narvarbar />
+            <div className='divTopchangepass'></div>
             <div className='eachgrid' style={{ width: wdth + 'vw', marginLeft: margin + 'vw' }}>
                 <form onSubmit={formik.handleSubmit}>
                     <div className="container">
                         <div className="row">
-                            <div style={{backgroundColor:localStorage.mode=="black"?'white':'white'}}className="col-md-6 col-sm-12 shadow mx-auto mt-5 p-4 border border-2 rounded-3 input-container">
+                            <div style={{backgroundColor:localStorage.mode=="black"?'white':'white'}}className="col-md-6 col-sm-12 shadow mx-auto p-4 border border-2 rounded-3 input-container changepasscont">
                                 <p className='fw-bold text-start'>Referral Withdrawal</p>
                                 <input type="text" placeholder='Enter Amount' onChange={formik.handleChange} value={formik.values.enteramount} name='enteramount' className='w-100 my-2 p-3' />
                                 <div className='text-danger text-end'>
