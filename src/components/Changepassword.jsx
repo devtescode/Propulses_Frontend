@@ -3,6 +3,7 @@ import Narvarbar from './Narvarbar'
 import { useFormik } from 'formik'
 import * as Yup from "yup"
 import axios from 'axios'
+import "./Changepassword.css"
 const Changepassword = () => {
 
     const [wdth, setwdth] = useState('')
@@ -60,11 +61,12 @@ const Changepassword = () => {
     return (
         <div id='body'>
             <Narvarbar />
-            <div className='eachgrid' style={{ width: wdth + 'vw', marginLeft: margin + 'vw' }}>
+            <div className='divTopchangepass'></div>
+            <div className='divpassword' style={{ width: wdth + 'vw', marginLeft: margin + 'vw' }}>
                 <form action="" onSubmit={formik.handleSubmit}>
                     <div className='container'>
                         <div className="row">
-                            <div style={{ backgroundColor: localStorage.mode == "black" ? 'white' : 'white' }} className="col-md-6 col-sm-12 shadow-lg border border-2 rounded-3 p-3 mx-auto text-center mt-5 input-container">
+                            <div style={{ backgroundColor: localStorage.mode == "black" ? 'white' : 'white' }} className="changepasscont col-md-7 col-sm-12 shadow-lg border border-2 rounded-3 p-3 mx-auto text-center input-container">
                                 <p className='fw-bold text-start'>Change Password</p>
                                 <input className='w-100 my-2 p-3' name='currencypass' onChange={formik.handleChange}
                                     value={formik.values.currencypass} placeholder='Currency Password' type="text" />

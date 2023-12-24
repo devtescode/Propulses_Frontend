@@ -249,4 +249,16 @@
     .resbgcolor{
         background-color: #4F46E5;
     }
+    .navbardisp {
+      display: none;
+      margin-right: 0px; 
+      text-align: end !important;
+      width: 100%;
+      height: 200px;
+      border-radius: 15px;
+      position: absolute;
+      z-index: 9;
+      background-color: #4e46e5;
+      color: white;
+  }
 }
