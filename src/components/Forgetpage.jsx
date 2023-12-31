@@ -25,15 +25,7 @@ const Forgetpage = () => {
             axios.post("https://propulses.onrender.com/userinvest/Forgetpasspage", {Forgetmailone: values.forgetemailpage1, Forgetmailtwo: values.forgetemailpage2, Forgetmailthree: values.forgetemailpage3})
             .then((response)=>{
                 successMessage = response.data.message;
-                errorMessage = response.data.message;
-                // alert(response.data.message)
-                // swal({
-                //     title: "",
-                //     text: response.data.message,
-                //     icon: "warning",
-                //     button: "Aww yiss!",
-                // });
-                
+                errorMessage = response.data.message;   
                 setTimeout(() => {
                     swal({
                         title: "",

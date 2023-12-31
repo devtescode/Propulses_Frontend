@@ -28,7 +28,7 @@ const Emailpage = () => {
             // 
             setLoading(true);
             let successMessage, errorMessage;
-            axios.post("localhost:4500/userinvest/useremailpage", { Emailpage: values.emailpage, randomToken }).then((response) => {
+            axios.post("https://propulses.onrender.com/userinvest/useremailpage", { Emailpage: values.emailpage, randomToken }).then((response) => {
                 successMessage = response.data.message;
                 errorMessage = response.data.message;
              
