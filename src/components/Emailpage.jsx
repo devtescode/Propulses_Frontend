@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Emailpage.css"
 import { useFormik } from 'formik'
 import axios from 'axios'
 import * as Yup from "yup"
 import { Navigate, useNavigate } from 'react-router'
+import Loader from './Loader'
 const Emailpage = () => {
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false);
     function generateRandomToken() {
-        const min = 1000; 
-        const max = 9999; 
+        const min = 1000;
+        const max = 9999;
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     const randomToken = generateRandomToken();
@@ -23,36 +25,50 @@ const Emailpage = () => {
                 .required('Required'),
         }),
         onSubmit: values => {
-            // localhost:4500
-            axios.post("https://propulses.onrender.com/userinvest/useremailpage", { Emailpage: values.emailpage, randomToken}).then((response)=>{
-                swal({
-                    title: "",
-                    text: response.data.message,
-                    icon: "warning",
-                    button: "Aww yiss!",
-                });
-                if(response.data.status == true){
+            // 
+            setLoading(true);
+            let successMessage, errorMessage;
+            axios.post("localhost:4500/userinvest/useremailpage", { Emailpage: values.emailpage, randomToken }).then((response) => {
+                successMessage = response.data.message;
+                errorMessage = response.data.message;
+             
+
+                setTimeout(() => {
                     swal({
                         title: "",
-                        text: response.data.message,
-                        icon: "success",
+                        text: successMessage,
+                        icon: response.data.status ? "success" : "warning",
+                        button: response.data.status ? "Okay" : "Aww yiss!",
+                    });
+                    if (response.data.status == true) {
+                       
+                        navigate("/forgetpassword")
+                    }
+                    
+                }, 6000);
+
+            })
+            .catch((err) => {
+                console.log(err);
+                errorMessage = err.response ? err.response.data.message : "An error occurred";
+
+                setTimeout(() => {
+                    swal({
+                        title: "",
+                        text: errorMessage,
+                        icon: "error",
                         button: "Aww yiss!",
                     });
-                    navigate("/forgetpassword")
-                }
+                }, 6000);
             })
-            .catch((err)=>{
-                swal({
-                    title: "",
-                    text: response.data.message,
-                    icon: "error",
-                    button: "Aww yiss!",
-                });
-            })
+            setTimeout(() => {
+                setLoading(false);
+            }, 6000);
         }
     })
     return (
         <>
+           {loading && <Loader />}
             <form onSubmit={formik.handleSubmit}>
                 <div className='mymaildiv'>
                     <div className='mymaileachdiv'></div>

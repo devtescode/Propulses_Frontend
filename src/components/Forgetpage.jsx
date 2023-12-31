@@ -1,13 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./Forgetpage.css"
 import * as Yup from "yup"
 import { useFormik } from 'formik'
 import axios from 'axios'
 import { useNavigate } from 'react-router'
-
+import Loader from './Loader'
 const Forgetpage = () => {
     const navigate = useNavigate()
-   
+    const [loading, setLoading] = useState(false);
     const formik = useFormik({
         initialValues: {
             forgetemailpage1: "",
@@ -20,39 +20,56 @@ const Forgetpage = () => {
         
         }),
         onSubmit: values => {
+            setLoading(true);
+            let successMessage, errorMessage;
             axios.post("https://propulses.onrender.com/userinvest/Forgetpasspage", {Forgetmailone: values.forgetemailpage1, Forgetmailtwo: values.forgetemailpage2, Forgetmailthree: values.forgetemailpage3})
             .then((response)=>{
+                successMessage = response.data.message;
+                errorMessage = response.data.message;
                 // alert(response.data.message)
-                swal({
-                    title: "",
-                    text: response.data.message,
-                    icon: "warning",
-                    button: "Aww yiss!",
-                });
-                if(response.data.status == true){
-                    
+                // swal({
+                //     title: "",
+                //     text: response.data.message,
+                //     icon: "warning",
+                //     button: "Aww yiss!",
+                // });
+                
+                setTimeout(() => {
                     swal({
-                        title: "Success",
-                        text: response.data.message,
-                        icon: "success",
-                        button: "okay",
+                        title: "",
+                        text: successMessage,
+                        icon: response.data.status ? "success" : "warning",
+                        button: response.data.status ? "Okay" : "Aww yiss!",
                     });
+                   
+                if(response.data.status == true){   
                     navigate("/login")
                 }
+                    
+                }, 6000);
+
             })
-            .catch((err)=>{
-                console.log(err, "Error occured");
-                swal({
-                    title: "",
-                    text: response.data.message,
-                    icon: "error",
-                    button: "Aww yiss!",
-                });
+            .catch((err) => {
+                console.log(err);
+                errorMessage = err.response ? err.response.data.message : "An error occurred";
+
+                setTimeout(() => {
+                    swal({
+                        title: "",
+                        text: errorMessage,
+                        icon: "error",
+                        button: "Aww yiss!",
+                    });
+                }, 6000);
             })
+            setTimeout(() => {
+                setLoading(false);
+            }, 6000);
         }
     })
     return (
         <>
+         {loading && <Loader />}
         <form onSubmit={formik.handleSubmit}>
             <div className='mycondiv'>
                 <div className='myeachdiv'></div>
