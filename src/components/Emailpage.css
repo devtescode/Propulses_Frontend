@@ -80,15 +80,16 @@ input:focus~.input-border1 {
 @media (max-width:688px) {
     .mymaildiv {
         display: block;
-        height: 50vh !important;
         justify-content: center;
-        margin-top: 5%;
+        align-items: center;
+        display: flex;
+        margin-top: 15% !important;
         width: 100% !important;
         border: 2px solid#5891ff;
         border-radius: 15px !important;
     }
     .mymaileachdiv2 {
-        width: 100% !important;
+        width: 100% !important; 
         border: none;
         margin-top: 10%;
     }
@@ -96,7 +97,7 @@ input:focus~.input-border1 {
        display: none;
     }
     .mailform {
-        --width-of-input: 90%;
+        --width-of-input: 95%;
         --border-height: 1px;
         --border-before-color: rgba(221, 221, 221, 0.39);
         --border-after-color: #5891ff;
@@ -107,7 +108,7 @@ input:focus~.input-border1 {
         top: 30%;
     }
     .MailBtnStyle2 {
-        width: 30vh !important;
+        width: 20vh !important;
         padding: 10px;
         background-color: #5891ff;
     }

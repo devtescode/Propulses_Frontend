@@ -47,8 +47,12 @@
     }
     .mycondiv{
         display: block;
-        margin-top: 10%;
-        height: 70vh !important;
+        height: 80vh !important;
+        display: flex;
+        align-items: center;
+        background-color: #4F46E5;
+        padding: 5px;
+        border: 2px solid blue;
         margin-top: 30%;
        
     }

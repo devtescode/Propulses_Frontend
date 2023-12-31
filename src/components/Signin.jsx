@@ -9,8 +9,10 @@ import Loader from './Loader'
 const Signin = () => {
     useEffect(() => {
         if (localStorage.reload){
+            
         }
         else{
+            // alert("success11111")
             localStorage.setItem('reload', 'true')
             window.location.reload()
         }
