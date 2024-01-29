@@ -16,6 +16,7 @@ import Forgetpage from './components/Forgetpage'
 import Emailpage from './components/Emailpage'
 import Landingpage from './components/Landingpage'
 import Notfound from './components/Notfound'
+import Spinner from './components/Spinner'
 function App() {
   let token = localStorage.token
   let admintoken = localStorage.admintoken
@@ -41,6 +42,7 @@ function App() {
       <Route path='forgetpassword' element={<Forgetpage/>}/>
       <Route path='withdrawalhistory' element={<Withdrawalhistory/>}/>
       <Route path='emailpage' element={<Emailpage/>}/>
+      <Route path='spinner' element={<Spinner/>}/>
       <Route path='*' element={<Notfound/>}/>
     </Routes>
 

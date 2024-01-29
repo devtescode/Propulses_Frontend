@@ -104,6 +104,7 @@ circle {
   stroke-dashoffset: 0;
   stroke-linecap: round;
   animation: dash4 1.5s ease-in-out infinite;
+  /* background-color: chocolate; */
  }
  @keyframes dash4 {
   0% {

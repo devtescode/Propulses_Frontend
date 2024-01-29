@@ -47,6 +47,9 @@ const Narvarbar = ({ user }) => {
     const withdrawHisBtn=()=>{
         navigate("/withdrawalhistory")
     }
+    const spinnergameBtn=()=>{
+        navigate("/spinner")
+    }
     // const [user, setUser] = useState("")
     let token = localStorage.token
 
@@ -113,6 +116,11 @@ const Narvarbar = ({ user }) => {
 
                                 <div>
                                     <button onClick={profileBtnpage} className='my-4 p-1 givebtnwidth border border-2 rounded-3'>Profile</button>
+                                </div>
+
+
+                                <div>
+                                    <button onClick={spinnergameBtn} className='my-4 p-1 givebtnwidth border border-2 rounded-3'>Spinner</button>
                                 </div>
 
 
