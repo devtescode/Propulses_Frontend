@@ -1,6 +1,40 @@
-*{
-    /* background-color: aqua; */
+body{
     padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
-    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* code{
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+} */
+.App{
+    border: 2px solid;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+.board {
+    border: 2px solid;
+    /* display: flex !important; */
+    background-color: #4F46E5;
+    position: relative !important;
+    padding: 0;
+    margin: 0 auto;
+}
+.tile{
+    position: absolute;
+    list-style: none;
+    color: white;
+    background-color: #151346;
+    box-shadow: 0px 0px 2px 2px;
+    display: grid !important;
+    place-items: center;
+    font-size: 20px;
+}
+.hole{
+    opacity: 0;
+}
+button{
+    display: block;
 }

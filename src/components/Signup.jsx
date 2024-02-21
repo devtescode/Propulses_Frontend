@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import "./Signup.css"
 import { useFormik } from 'formik'
 import * as Yup from "yup"
@@ -12,7 +12,7 @@ const Signup = () => {
     const [serchParams, setserchParams] = useSearchParams()
     const token = serchParams.get("referralcode")
     const [loading, setLoading] = useState(false);
-    
+
     const formik = useFormik({
         initialValues: {
             firstname: "",
@@ -44,28 +44,30 @@ const Signup = () => {
         onSubmit: values => {
             setLoading(true);
             let successMessage, errorMessage;
+
+            // http://localhost:4500
             axios.post("https://propulses.onrender.com/userinvest/usersignup", { Firstname: values.firstname, Lastname: values.lastname, Username: values.username, Password: values.password, Email: values.email, Phonenumber: values.phonenumber, Couponcode: values.couponcode, referral: values.referral })
                 .then((response) => {
                     successMessage = response.data.message;
                     errorMessage = response.data.message;
-                    setTimeout(() => {
-                        swal({
-                            title: "",
-                            text: successMessage,
-                            icon: response.data.status ? "success" : "warning",
-                            button: response.data.status ? "Okay" : "Aww yiss!",
-                        });
-                        if (response.data.status == true) {
-                            // swal({
-                            //     title: "Success",
-                            //     text: response.data.message,
-                            //     icon: "success",
-                            //     button: "Okay",
-                            // });
-                            
-                            navigate("/login")
-                        }
-                    }, 6000)
+                    // setTimeout(() => {
+                    swal({
+                        title: "",
+                        text: successMessage,
+                        icon: response.data.status ? "success" : "warning",
+                        button: response.data.status ? "Okay" : "Aww yiss!",
+                    });
+                    if (response.data.status == true) {
+                        // swal({
+                        //     title: "Success",
+                        //     text: response.data.message,
+                        //     icon: "success",
+                        //     button: "Okay",
+                        // });
+
+                        navigate("/login")
+                    }
+                    // }, 6000)
                 })
                 .catch((err) => {
                     console.log(err);
@@ -87,7 +89,7 @@ const Signup = () => {
     const linksignin = () => {
         navigate("/login")
     }
-    
+
 
 
     return (
@@ -157,8 +159,8 @@ const Signup = () => {
                             <div className='text-end text-danger'>
                                 {formik.errors.referral}
                             </div>
-                            <div className='text-center mx-auto'>
-                                <button type="submit" class="submitBtn">
+                            <div className='justify-content-center d-flex'>
+                                <button type="submit" className="submitBtn">
                                     Sign Up
                                 </button>
                             </div>

@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from "yup"
 import axios from 'axios'
 import { useNavigate } from 'react-router'
-const Admin = () => { 
+import Loader from './Loader'
+const Admin = () => {
+    const [loading, setLoading] = useState(false);
     localStorage.removeItem("adminlogin")
     const navigate = useNavigate()
     const formik = useFormik({
@@ -19,6 +21,7 @@ const Admin = () => {
 
         }),
         onSubmit: values => {
+            setLoading(true);
             axios.post("https://propulses.onrender.com/userinvest/useradmin", { Username: values.username, Password: values.password })
                 .then((response) => {
                     swal({
@@ -39,10 +42,14 @@ const Admin = () => {
                         localStorage.setItem("adminlogin", true)
                     }
                 })
+            setTimeout(() => {
+                setLoading(false);
+            }, 6000);
         }
     })
     return (
         <>
+            {loading && <Loader />}
             <form action="" onSubmit={formik.handleSubmit}>
                 <div className='contfirstdiv'>
                     <div className="mycontsec">
@@ -67,7 +74,7 @@ const Admin = () => {
                                 {formik.errors.password}
                             </div>
 
-                            <div className='text-center mx-auto'>
+                            <div className='d-flex justify-content-center'>
                                 <button type="submit" class="submitBtn">
                                     Sign In
                                 </button>

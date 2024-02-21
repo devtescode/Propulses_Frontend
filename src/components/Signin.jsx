@@ -8,17 +8,17 @@ import Loader from './Loader'
 
 const Signin = () => {
     useEffect(() => {
-        if (localStorage.reload){
-            
+        if (localStorage.reload) {
+
         }
-        else{
+        else {
             // alert("success11111")
             localStorage.setItem('reload', 'true')
             window.location.reload()
         }
     }, [])
     // localStorage.setItem('reload', 'true')
-    
+
     localStorage.removeItem("useradminlogin")
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false);
@@ -42,33 +42,30 @@ const Signin = () => {
                 .then((response) => {
                     successMessage = response.data.message;
                     errorMessage = response.data.message;
-                    setTimeout(() => {
-                        swal({
-                            title: "",
-                            text: successMessage,
-                            icon: response.data.status ? "success" : "warning",
-                            button: response.data.status ? "Okay" : "Aww yiss!",
-                        });
-                        if (response.data.status === true) {
-                            localStorage.token = response.data.token
-                            navigate("/dashboard")
-                            localStorage.setItem("useradminlogin", true)
-                        }
-                    }, 6000);
-
+                    swal({
+                        title: "",
+                        text: successMessage,
+                        icon: response.data.status ? "success" : "warning",
+                        button: response.data.status ? "Okay" : "Aww yiss!",
+                    });
+                    if (response.data.status === true) {
+                        localStorage.token = response.data.token
+                        navigate("/dashboard")
+                        localStorage.setItem("useradminlogin", true)
+                    }
                 })
                 .catch((err) => {
                     console.log(err);
                     errorMessage = err.response ? err.response.data.message : "An error occurred";
 
-                    setTimeout(() => {
+                    // setTimeout(() => {
                         swal({
                             title: "",
                             text: errorMessage,
                             icon: "error",
                             button: "Aww yiss!",
                         });
-                    }, 6000);
+                    // }, 6000);
                 })
 
             setTimeout(() => {
@@ -108,7 +105,7 @@ const Signin = () => {
                             <div className='text-end text-danger'>
                                 {formik.errors.password}
                             </div>
-                            <div className='text-center mx-auto'>
+                            <div className='justify-content-center d-flex'>
                                 <button type="submit" class="submitBtn">
                                     Sign In
                                 </button>

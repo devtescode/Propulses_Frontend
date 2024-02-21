@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./Narbar.css"
-import { useNavigate } from 'react-router'
+import { Outlet, useNavigate } from 'react-router'
 
 const Narvarbar = ({ user }) => {
     const navigate = useNavigate()
@@ -16,7 +16,6 @@ const Narvarbar = ({ user }) => {
     const closeOffcanvas = () => {
         let offcanvas = document.getElementById('offcanvasDark');
         offcanvas.style.display = 'none';
-        // localStorage.setItem('width', 100x
     }
     const profileBtn = () => {
         let navbardisp = document.getElementById('navbardisp');
@@ -50,13 +49,16 @@ const Narvarbar = ({ user }) => {
     const spinnergameBtn=()=>{
         navigate("/spinner")
     }
+    const PuzzleBtn=()=>{
+        navigate("/puzzle")
+    }
     // const [user, setUser] = useState("")
     let token = localStorage.token
 
-    let mode = "black";
-    if(!localStorage.mode){
-        localStorage.setItem('mode', 'white');
-    }
+    // let mode = "black";
+    // if(!localStorage.mode){
+    //     localStorage.setItem('mode', 'white');
+    // }
     // const inputBtn = () => {
     //     if (localStorage.mode=="white") {
     //         localStorage.setItem('mode', 'black')
@@ -88,15 +90,18 @@ const Narvarbar = ({ user }) => {
     }
     
     return (
-        <div id='body' >
+        // id='dark'
+        <div >
             <div className='gridcont'>
-                <div class="eachgrid">
-                    <div class="offcanvas offcanvas-start show text-bg-dark myoffcanvarespon" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">
-                        <div class="offcanvas-header">
+                <div className="eachgrid">
+                    <div className="offcanvas offcanvas-start show text-bg-dark myoffcanvarespon" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasDark"  aria-labelledby="offcanvasDarkLabel">
+
+                        <div className="offcanvas-header">
                             <h5 class="offcanvas-title" id="offcanvasDarkLabel"></h5>
-                            <button type="button" class="btn-close btn-close-white trigeroffcan" data-bs-dismiss="offcanvasDark" aria-label="Close" onClick={closeOffcanvas}></button>
+                            <button type="button" class="btn-close btn-close-white trigeroffcan btn btn-success" data-bs-dismiss="offcanvasDark" aria-label="Close" onClick={closeOffcanvas}></button>
+
                         </div>
-                        <div class="offcanvas-body ">
+                        <div className="offcanvas-body ">
                             <div className='divtogrespon'>
                                 <div className=''>
                                     <button className='my-4 p-1 givebtnwidth border border-2 rounded-3' onClick={dashboardBtn}>Dashboard</button>
@@ -125,6 +130,11 @@ const Narvarbar = ({ user }) => {
 
 
                                 <div>
+                                    <button onClick={PuzzleBtn} className='my-4 p-1 givebtnwidth border border-2 rounded-3'>Puzzle</button>
+                                </div>
+
+
+                                <div>
                                     <button className='my-4 p-1 givebtnwidth border border-2 rounded-3' onClick={ReferralBtn}>Withdrawal</button>
                                 </div>
 
@@ -134,6 +144,7 @@ const Narvarbar = ({ user }) => {
                             </div>
                         </div>
                     </div>
+
                     <div className='offcanvastopBTn'>
                         <div className='my-3'>
                             <button class="offcanvas-button btn btn-success resbgcolor mt-3" onClick={toggleOffcanvas}><i class="ri-menu-2-line"></i></button>
@@ -141,7 +152,7 @@ const Narvarbar = ({ user }) => {
                     </div>
                 </div>
                 <div className='eachgrid'>
-                    <nav class="bg-body-tertiary p-1">
+                    <nav className="bg-body-tertiary p-1">
                         <div className='navbarprofile my-3' onClick={profileBtn}>
 
                         </div>
@@ -176,6 +187,7 @@ const Narvarbar = ({ user }) => {
                     </div>
                 </div>
             </div>
+            
 
         </div>
     )

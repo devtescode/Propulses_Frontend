@@ -5,7 +5,7 @@ import 'react-spin-game/dist/index.css';
 import { useRef } from 'react';
 
 const Spinner = () => {
-    const freeSpinGifts = [['0', 'red'], ['30', 'gray'], ['10', 'blue'], ['70', 'purple'], ['20', 'aqua'], ['25', 'tomato'], ['90', 'cadetblue'], ['5', 'chocolate'] /* ... you[r other data ... */];
+    const freeSpinGifts = [['0', 'red'], ['30', 'gray'], ['10', 'blue'], ['70', 'purple'], ['20', 'aqua'], ['25', 'tomato'], ['90', 'cadetblue'], ['5', 'chocolate']];
     const [wdth, setwdth] = useState('');
     const [margin, setmargin] = useState('');
     const [time, setTime] = useState(0)
@@ -32,9 +32,9 @@ const Spinner = () => {
         setTime(getRandomInt(1, 20))
         ref.current.handleSpin()
     }
+    
 
-
-
+      
     const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
     return (
         <>
@@ -47,6 +47,7 @@ const Spinner = () => {
                     </div>
                     <div className='mt-5'>
                         <button className='btn btn-success' onClick={handleClick}>Spin</button>
+                       
                     </div>
                 </div>
             </div>

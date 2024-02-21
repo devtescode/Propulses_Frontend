@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router'
+import { Navigate, Outlet, Route, Routes } from 'react-router'
 import './App.css'
 import Signup from './components/Signup'
 import Signin from './components/Signin'
@@ -17,34 +17,46 @@ import Emailpage from './components/Emailpage'
 import Landingpage from './components/Landingpage'
 import Notfound from './components/Notfound'
 import Spinner from './components/Spinner'
+import Puzzle from './components/Puzzle'
 function App() {
-  let token = localStorage.token
-  let admintoken = localStorage.admintoken
 
-    // localStorage.removeItem('reload')
- 
+  let admintoken = localStorage.admintoken
+  
+  
+  const DashboardLayout = () => {
+    let token = localStorage.token
+    return (
+      <Routes>
+        <Route path='dashboard/' element={token ? <Outlet /> : <Navigate to={'/login'} />}>
+          <Route path="" element={<Dashboard />} />
+        </Route>
+      </Routes>
+    )
+  }
+
 
   return (
     <>
-    <Routes basename="/my-app">
-      <Route path='/' element={<Landingpage/>}/>
-      <Route path='signup' element={<Signup/>}/>
-      <Route path='login' element={<Signin/>}/>
-      <Route path='/admin' element={<Admin/>}/>
-      <Route path='/adminpage' element={<Adminpage/>}/>
-      <Route path='/dashboard' element={token ? <Dashboard/> : <Navigate to="/login"/>}/>
-      <Route path='addaccount' element={<Addaccountpage/>}/>
-      <Route path='changepassword' element={<Changepassword/>}/>
-      <Route path='converter' element={<Converter/>}/>
-      <Route path='referral' element={<Referralpage/>}/>
-      <Route path='profile' element={<Profilepage/>}/>
-      <Route path='navbar' element={<Narvarbar/>}/>
-      <Route path='forgetpassword' element={<Forgetpage/>}/>
-      <Route path='withdrawalhistory' element={<Withdrawalhistory/>}/>
-      <Route path='emailpage' element={<Emailpage/>}/>
-      <Route path='spinner' element={<Spinner/>}/>
-      <Route path='*' element={<Notfound/>}/>
-    </Routes>
+      <Routes basename="/my-app">
+        <Route path='/' element={<Landingpage />} />
+        <Route path='signup' element={<Signup />} />
+        <Route path='login' element={<Signin />} />
+        <Route path='/admin' element={<Admin />} />
+        <Route path='/adminpage' element={<Adminpage />} />
+        <Route path='/*' element={<DashboardLayout/>} />
+        <Route path='addaccount' element={<Addaccountpage />} />
+        <Route path='changepassword' element={<Changepassword />} />
+        <Route path='converter' element={<Converter />} />
+        <Route path='referral' element={<Referralpage />} />
+        <Route path='profile' element={<Profilepage />} />
+        <Route path='navbar' element={<Narvarbar />} />
+        <Route path='forgetpassword' element={<Forgetpage />} />
+        <Route path='withdrawalhistory' element={<Withdrawalhistory />} />
+        <Route path='emailpage' element={<Emailpage />} />
+        <Route path='spinner' element={<Spinner />} />
+        <Route path='puzzle' element={<Puzzle />} />
+        <Route path='*' element={<Notfound />} />
+      </Routes>
 
     </>
   )

@@ -56,15 +56,18 @@ const Dashboard = () => {
     })
 
     return (
-        <div id='body' style={{backgroundColor:localStorage.mode?localStorage.mode:"white"}}>
+        // id='body' style={{backgroundColor:localStorage.mode?localStorage.mode:"white"}}
+        <div >
             <Narvarbar user={user}/>
-            <div className='eachgrid' style={{ width: wdth + 'vw', marginLeft: margin + 'vw' }}>
+            <div className='eachgrid' style={{ width: wdth + 'vw', marginLeft: margin + 'vw'}}>
                 <div className='p-3 d-flex'>
                     <div>
-                        <h5 style={{color:localStorage.mode=="black"?'white':'black'}}>Welcome Back,</h5>
+                    {/* style={{color:localStorage.mode=="black"?'white':'black'}} */}
+                        <h5 >Welcome Back,</h5>
                     </div>
                     <div className='mx-1'>
-                        <h5 style={{color:localStorage.mode=="black"?'white':'black'}}>{user && user?.Username}</h5>
+                    {/* style={{color:localStorage.mode=="black"?'white':'black'}} */}
+                        <h5 >{user && user?.Username}</h5>
                     </div>
                 </div>
                 <div class="container text-center">
