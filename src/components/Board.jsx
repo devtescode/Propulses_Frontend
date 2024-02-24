@@ -55,7 +55,7 @@ const Board = ({imgUrl}) => {
                     />
                 ))}
             </ul> 
-            {hasWon && isStarted && <div>Puzzle Solved 🧩👍</div>}
+            {hasWon && isStarted && <div> Winner 🧩👍</div>}
             {!isStarted ? 
             (<button className='btn btn-success' onClick={()=> handleStartClick()}>Start Game</button>) : 
             (<button className='btn btn-danger' onClick={()=> handleshuffleClick()}>Restart Game</button>)}
