@@ -10,15 +10,16 @@ body{
 } */
 .Appp{
     border: 2px solid;
+    /* background-color: #151346; */
     display: grid;
     place-items: center;
     height: 100vh;
 }
 .board {
-    border: 2px solid;
-    /* display: flex !important; */
     background-color: #4F46E5;
     position: relative !important;
+    height: 62.5vh !important;
+    width: 62.5vh  !important;
     padding: 0;
     margin: 0 auto;
 }
@@ -31,10 +32,23 @@ body{
     display: grid !important;
     place-items: center;
     font-size: 20px;
+    width: 100px !important;
+    height: 100px !important;
 }
 .hole{
     opacity: 0;
 }
 button{
     display: block;
+}
+
+@media (max-width:688px) {
+    .Appp{
+        border: 2px solid;
+        background-color: #151346;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        /* margin-top: 30px; */
+    }
 }

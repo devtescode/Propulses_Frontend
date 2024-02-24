@@ -34,7 +34,7 @@ const Puzzle = () => {
                 <div className='Appp'>
                     <h1>Sliding Puzzle</h1>
                     <Board imgUrl={imgUrl}/>
-                    <input disabled className='' type="text" value={imgUrl} onChange={handleImageChange}/>
+                    <input className='' type="text" value={imgUrl} onChange={handleImageChange}/>
                 </div>
             </div>
         </>
