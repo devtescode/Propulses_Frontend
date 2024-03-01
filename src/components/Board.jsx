@@ -1,35 +1,39 @@
 import React, { useState } from 'react'
 import Tile from '../components/Tile'
 import { TILE_COUNT, GRID_SIZE, BOARD_SIZE } from '../components/Constants'
-import { canSwap, shuffle, swap, isSolved} from '../components/Helpers'
+import { canSwap, shuffle, swap, isSolved } from '../components/Helpers'
 
-const Board = ({imgUrl}) => {
+const Board = ({ imgUrl }) => {
     const [tiles, setTiles] = useState([...Array(TILE_COUNT).keys()])
-    // const [isSolved, setIsSolved] = useState(false)
     const [isStarted, setIsStarted] = useState(false)
-    console.log('is started:', isStarted);
-    const shuffleTiles =() => {
-        const shuffledTiles = shuffle(tiles)
-        setTiles(shuffledTiles) 
+
+    const shuffleTiles = () => {
+        const shuffledTiles = shuffle([...Array(TILE_COUNT).keys()])
+        setTiles(shuffledTiles)
+        setIsStarted(true)
     }
-    const swapTiles = (tileIndex) =>{
-        if(canSwap(tileIndex, tiles.indexOf(tiles.length - 1))){
-           const swappedTiles = swap(tiles, tileIndex, tiles.indexOf(tiles.length - 1 ))
-           setTiles(swappedTiles)
+
+    const swapTiles = (tileIndex) => {
+        if (isStarted) {
+            if (canSwap(tileIndex, tiles.indexOf(tiles.length - 1))) {
+                const swappedTiles = swap(tiles, tileIndex, tiles.indexOf(tiles.length - 1))
+                setTiles(swappedTiles)
+            } 
+            // else {
+            //     alert("Please click 'Start Game' before making moves.");
+            // }
+        }
+        else {
+            alert("Please click 'Start Game' before making moves.");
         }
     }
 
-    const handleTileClick = (index)=>{
+    const handleTileClick = (index) => {
         swapTiles(index)
     }
 
-    const handleshuffleClick = () =>{
+    const handleShuffleClick = () => {
         shuffleTiles()
-    }
-
-    const handleStartClick=()=>{
-        shuffleTiles()
-        setIsStarted(true)
     }
 
     const pieceWidth = Math.round(BOARD_SIZE, GRID_SIZE)
@@ -38,29 +42,36 @@ const Board = ({imgUrl}) => {
         width: BOARD_SIZE,
         height: BOARD_SIZE,
         backgroundImage: `url(${imgUrl})`,
-        backgroundSize: 'cover', // Adjust as needed   
+        backgroundSize: 'cover', // Adjust as needed
     }
 
     const hasWon = isSolved(tiles)
+
     return (
         <>
             <ul style={style} className='board'>
                 {tiles.map((tile, index) => (
                     <Tile
-                    key={tile}
-                    index={index}
-                    imgUrl={imgUrl}
-                    tile={tile}
-                    width={pieceWidth}
-                    height={pieceHeight}
-                    handleTileClick={handleTileClick}
+                        key={tile}
+                        index={index}
+                        imgUrl={imgUrl}
+                        tile={tile}
+                        width={pieceWidth}
+                        height={pieceHeight}
+                        handleTileClick={handleTileClick}
                     />
                 ))}
-            </ul> 
-            {hasWon && isStarted && <div> Winner 🧩👍</div>}
-            {!isStarted ? 
-            (<button className='btn btn-success' onClick={()=> handleStartClick()}>Start Game</button>) : 
-            (<button className='btn btn-danger' onClick={()=> handleshuffleClick()}>Restart Game</button>)}
+            </ul>
+            {hasWon && isStarted && <div>Winner 🧩👍</div>}
+            {!isStarted ? (
+                <button className='btn btn-success' onClick={() => shuffleTiles()}>
+                    Start Game
+                </button>
+            ) : (
+                <button className='btn btn-danger' onClick={() => shuffleTiles()}>
+                    Restart Game
+                </button>
+            )}
         </>
     )
 }
