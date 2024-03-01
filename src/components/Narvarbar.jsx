@@ -46,9 +46,9 @@ const Narvarbar = ({ user }) => {
     const withdrawHisBtn=()=>{
         navigate("/withdrawalhistory")
     }
-    const spinnergameBtn=()=>{
-        navigate("/spinner")
-    }
+    // const spinnergameBtn=()=>{
+    //     navigate("/spinner")
+    // }
     const PuzzleBtn=()=>{
         navigate("/puzzle")
     }
@@ -94,11 +94,11 @@ const Narvarbar = ({ user }) => {
         <div >
             <div className='gridcont'>
                 <div className="eachgrid">
-                    <div className="offcanvas offcanvas-start show text-bg-dark myoffcanvarespon" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasDark"  aria-labelledby="offcanvasDarkLabel">
+                    <div className="offcanvas offcanvas-start show text-bg-dark myoffcanvarespon" data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasDark"  aria-labelledby="offcanvasDarkLabel">
 
                         <div className="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvasDarkLabel"></h5>
-                            <button type="button" class="btn-close btn-close-white trigeroffcan btn btn-success" data-bs-dismiss="offcanvasDark" aria-label="Close" onClick={closeOffcanvas}></button>
+                            <h5 className="offcanvas-title" id="offcanvasDarkLabel"></h5>
+                            <button type="button" className="btn-close btn-close-white trigeroffcan btn btn-success" data-bs-dismiss="offcanvasDark" aria-label="Close" onClick={closeOffcanvas}></button>
 
                         </div>
                         <div className="offcanvas-body ">
@@ -124,9 +124,9 @@ const Narvarbar = ({ user }) => {
                                 </div>
 
 
-                                <div>
+                                {/* <div>
                                     <button onClick={spinnergameBtn} className='my-4 p-1 givebtnwidth border border-2 rounded-3'>Spinner</button>
-                                </div>
+                                </div> */}
 
 
                                 <div>
@@ -147,7 +147,7 @@ const Narvarbar = ({ user }) => {
 
                     <div className='offcanvastopBTn'>
                         <div className='my-3'>
-                            <button class="offcanvas-button btn btn-success resbgcolor mt-3" onClick={toggleOffcanvas}><i class="ri-menu-2-line"></i></button>
+                            <button className="offcanvas-button btn btn-success resbgcolor mt-3" onClick={toggleOffcanvas}><i className="ri-menu-2-line"></i></button>
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@ const Narvarbar = ({ user }) => {
                         </div>
                         <hr />
                         <div className='text-start px-3 p-2 fw-bold' onClick={logOut} style={{cursor:"pointer"}}>
-                            log out<i class="ri-logout-circle-line"></i>
+                            log out<i className="ri-logout-circle-line"></i>
                         </div>
                     </div>
                 </div>

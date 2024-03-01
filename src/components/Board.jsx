@@ -36,7 +36,9 @@ const Board = ({imgUrl}) => {
     const pieceHeight = Math.round(BOARD_SIZE, GRID_SIZE)
     const style = {
         width: BOARD_SIZE,
-        height: BOARD_SIZE,   
+        height: BOARD_SIZE,
+        backgroundImage: `url(${imgUrl})`,
+        backgroundSize: 'cover', // Adjust as needed   
     }
 
     const hasWon = isSolved(tiles)

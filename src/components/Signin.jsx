@@ -90,8 +90,8 @@ const Signin = () => {
                         </div>
                     </div>
                     <div className='contthirddivsignin'>
-                        <div class="form">
-                            <p class="form-title">Login</p>
+                        <div className="form">
+                            <p className="form-title">Login</p>
                             <div class="input-container">
                                 <input type="text" autoComplete='true' className='w-100' onChange={formik.handleChange} name='username' value={formik.values.username} placeholder="Username" />
                             </div>
@@ -99,7 +99,7 @@ const Signin = () => {
                                 {formik.errors.username}
                             </div>
 
-                            <div class="input-container">
+                            <div className="input-container">
                                 <input type="password" autoComplete='true' onChange={formik.handleChange} name='password' value={formik.values.password} className='w-100' placeholder="Password" />
                             </div>
                             <div className='text-end text-danger'>
