@@ -5,11 +5,16 @@ import { updateURLParameter } from '../components/Helpers';
 
 
 const Puzzle = () => {
+    const [imgUrl, setimgUrl] = useState("")
     const [margin, setmargin] = useState('');
     const [wdth, setwdth] = useState('');
-    const [imgUrl, setimgUrl] = useState("")
 
-
+    useEffect(() => {
+        if (localStorage.width) {
+            setwdth(localStorage.width);
+            setmargin(localStorage.margin);
+        }
+    }, []);
     const handleImageChange =(e)=>{
         setimgUrl(e.target.value)
         window.history.replaceState("","", updateURLParameter(window.location.href, "img", e.target.value))
@@ -26,20 +31,15 @@ const Puzzle = () => {
     }
 }, [imgUrl]); 
     
-    useEffect(() => {
-        if (localStorage.width) {
-            setwdth(localStorage.width);
-            setmargin(localStorage.margin);
-        }
-    }, []);
+  
     return (
         <>
             <Narvarbar />
             <div style={{ width: wdth + 'vw', marginLeft: margin + 'vw' }}>
                 <div className='Appp'>
-                    <h1>Sliding Puzzle</h1>
+                    <h1 className=''>Sliding Puzzle</h1>
                     <Board imgUrl={imgUrl}/>
-                    <input className='' type="text" value={imgUrl} onChange={handleImageChange}/>
+                    <input className='' disabled type="text" value={imgUrl} onChange={handleImageChange}/>
                 </div>
             </div>
         </>
