@@ -24,7 +24,12 @@ const Board = ({ imgUrl }) => {
             // }
         }
         else {
-            alert("Please click 'Start Game' before making moves.");
+            swal({
+                title: "Button",
+                text: "Please click 'Start Game' before making moves.",
+                icon: "error",
+                button: "Aww yiss!",
+            });
         }
     }
 
