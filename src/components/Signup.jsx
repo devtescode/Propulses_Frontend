@@ -107,58 +107,80 @@ const Signup = () => {
                             <p class="form-title">Create Account</p>
                             <p className='text-center'>Fill in your correct details</p>
                             <div class="input-container">
-                                <input type="text" onChange={formik.handleChange} name='firstname' value={formik.values.firstname} className='w-100' placeholder="First Name" />
+                                <input type="text"
+                                    className={`form-control w-100 my-4 p-3 ${formik.values.firstname && !formik.errors.firstname ? 'is-valid' : (formik.errors.firstname ? 'is-invalid' : '')}`}
+                                    onChange={formik.handleChange} name='firstname' value={formik.values.firstname} placeholder="First Name" />
                             </div>
-                            <div className='text-end text-danger'>
+                            {/* <div className='text-end text-danger'>
                                 {formik.errors.firstname}
-                            </div>
+                            </div> */}
 
                             <div class="input-container">
-                                <input type="text" className='w-100' onChange={formik.handleChange} name='lastname' value={formik.values.lastname} placeholder="Last Name" />
+                                <input type="text"
+                                    className={`form-control w-100 my-4 p-3 ${formik.values.lastname && !formik.errors.lastname ? 'is-valid' : (formik.errors.lastname ? 'is-invalid' : '')}`}
+                                    onChange={formik.handleChange} name='lastname' value={formik.values.lastname} placeholder="Last Name" />
                             </div>
-                            <div className='text-end text-danger'>
+                            {/* <div className='text-end text-danger'>
                                 {formik.errors.lastname}
-                            </div>
+                            </div> */}
 
                             <div class="input-container">
-                                <input type="text" className='w-100' onChange={formik.handleChange} name='username' value={formik.values.username} placeholder="Username" />
+                                <input type="text"
+                                    value={formik.values.username}
+                                    onChange={formik.handleChange}
+                                    className={`form-control w-100 my-4 p-3 ${formik.values.username && !formik.errors.username ? 'is-valid' : (formik.errors.username ? 'is-invalid' : '')}`}
+                                    name='username' placeholder="Username"
+                                />
                             </div>
-                            <div className='text-end text-danger'>
+                            {/* <div className='text-end text-danger'>
                                 {formik.errors.username}
-                            </div>
+                            </div> */}
 
                             <div class="input-container">
-                                <input type="password" onChange={formik.handleChange} name='password' value={formik.values.password} className='w-100' placeholder="Password" />
+                                <input type="password"
+                                    className={`form-control w-100 my-4 p-3 ${formik.values.password && !formik.errors.password ? 'is-valid' : (formik.errors.password ? 'is-invalid' : '')}`}
+                                    onChange={formik.handleChange} name='password' value={formik.values.password} placeholder="Password" />
                             </div>
-                            <div className='text-end text-danger'>
+                            {/* <div className='text-end text-danger'>
                                 {formik.errors.password}
-                            </div>
+                            </div> */}
 
                             <div class="input-container">
-                                <input type="email" onChange={formik.handleChange} name='email' value={formik.values.email} className='w-100' placeholder="Email" />
+                                <input type="email"
+                                    className={`form-control w-100 my-4 p-3 ${formik.values.email && !formik.errors.email ? 'is-valid' : (formik.errors.email ? 'is-invalid' : '')}`}
+                                    onChange={formik.handleChange} name='email' value={formik.values.email} placeholder="Email" />
                             </div>
-                            <div className='text-end text-danger'>
+                            {/* <div className='text-end text-danger'>
                                 {formik.errors.email}
-                            </div>
-                            <div class="input-container">
-                                <input type="number" onChange={formik.handleChange} name='phonenumber' value={formik.values.phonenumber} className='w-100' placeholder="Phone number" />
-                            </div>
-                            <div className='text-end text-danger'>
-                                {formik.errors.phonenumber}
-                            </div>
-                            <div class="input-container">
-                                <input type="text" onChange={formik.handleChange} name='couponcode' value={formik.values.couponcode} className='w-100' placeholder="Coupon Code" />
-                            </div>
-                            <div className='text-end text-danger'>
-                                {formik.errors.couponcode}
-                            </div>
+                            </div> */}
 
                             <div class="input-container">
-                                <input type="text" disabled={token} onChange={formik.handleChange} name='referral' value={formik.values.referral} className='w-100' placeholder="Referral link" />
+                                <input type="number"
+                                    className={`form-control w-100 my-4 p-3 ${formik.values.phonenumber && !formik.errors.phonenumber ? 'is-valid' : (formik.errors.phonenumber ? 'is-invalid' : '')}`}
+                                    onChange={formik.handleChange} name='phonenumber' value={formik.values.phonenumber} placeholder="Phone number" />
                             </div>
-                            <div className='text-end text-danger'>
+                            {/* <div className='text-end text-danger'>
+                                {formik.errors.phonenumber}
+                            </div> */}
+
+                            <div class="input-container">
+                                <input type="text"
+                                    className={`form-control w-100 my-4 p-3 ${formik.values.couponcode && !formik.errors.couponcode ? 'is-valid' : (formik.errors.couponcode ? 'is-invalid' : '')}`}
+                                    onChange={formik.handleChange} name='couponcode' value={formik.values.couponcode} placeholder="Coupon Code" />
+                            </div>
+                            {/* <div className='text-end text-danger'>
+                                {formik.errors.couponcode}
+                            </div> */}
+
+                            <div class="input-container">
+                                <input type="text"
+                                    className={`form-control w-100 my-4 p-3 ${formik.values.referral && !formik.errors.referral ? 'is-valid' : (formik.errors.referral ? 'is-invalid' : '')}`}
+                                    disabled={token} onChange={formik.handleChange} name='referral' value={formik.values.referral} placeholder="Referral link" />
+                            </div>
+                            {/* <div className='text-end text-danger'>
                                 {formik.errors.referral}
-                            </div>
+                            </div> */}
+                            
                             <div className='justify-content-center d-flex'>
                                 <button type="submit" className="submitBtn">
                                     Sign Up

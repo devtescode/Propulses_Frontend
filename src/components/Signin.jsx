@@ -95,18 +95,22 @@ const Signin = () => {
                         <div className="form">
                             <p className="form-title">Login</p>
                             <div class="input-container">
-                                <input type="text" autoComplete='true' className='w-100' onChange={formik.handleChange} name='username' value={formik.values.username} placeholder="Username" />
+                                <input type="text" autoComplete='true' 
+                                 className={`form-control w-100 my-4 p-3 ${formik.values.username && !formik.errors.username ? 'is-valid' : (formik.errors.username ? 'is-invalid' : '')}`}
+                                onChange={formik.handleChange} name='username' value={formik.values.username} placeholder="Username" />
                             </div>
-                            <div className='text-end text-danger'>
+                            {/* <div className='text-end text-danger'>
                                 {formik.errors.username}
-                            </div>
+                            </div> */}
 
                             <div className="input-container">
-                                <input type="password" autoComplete='true' onChange={formik.handleChange} name='password' value={formik.values.password} className='w-100' placeholder="Password" />
+                                <input type="password" autoComplete='true' 
+                                 className={`form-control w-100 my-4 p-3 ${formik.values.password && !formik.errors.password ? 'is-valid' : (formik.errors.password ? 'is-invalid' : '')}`}
+                                onChange={formik.handleChange} name='password' value={formik.values.password} placeholder="Password" />
                             </div>
-                            <div className='text-end text-danger'>
+                            {/* <div className='text-end text-danger'>
                                 {formik.errors.password}
-                            </div>
+                            </div> */}
                             <div className='justify-content-center d-flex'>
                                 <button type="submit" class="submitBtn">
                                     Sign In
