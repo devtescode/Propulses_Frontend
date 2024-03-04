@@ -11,13 +11,14 @@ import fourth from '../assets/fourth.avif'
 
 const Dashboard = () => {
     const navigate = useNavigate()
-    // let url = "https://propulses.onrender.com/userinvest/dashboard"
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         alert("login expired you are allow to login again")
-    //         navigate("/login")
-    //     },500000);
-    // },[])
+    let url = "https://propulses.onrender.com/userinvest/dashboard"
+    
+    useEffect(() => {
+        setTimeout(() => {
+            alert("login expired you are allow to login again")
+            navigate("/login")
+        },500000);
+    },[])
     
     const [user, setUser] = useState("")
     useEffect(() => {
