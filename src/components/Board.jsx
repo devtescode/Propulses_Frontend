@@ -107,14 +107,14 @@ const Board = ({ imgUrl }) => {
         width: BOARD_SIZE,
         height: BOARD_SIZE,
         backgroundImage: `url(${imgUrl})`,
-        backgroundSize: 'cover', // Adjust as needed
+        backgroundSize: 'cover', 
     }
 
     const hasWon = isSolved(tiles)
 
     return (
         <>
-           
+            {/* style={{ width: wdth + 'vw', marginLeft: margin + 'vw' }} */}
             <div className='divpassword'>
                 <ul style={style} className='board'>
                     {tiles.map((tile, index) => (
