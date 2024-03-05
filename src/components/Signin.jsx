@@ -61,12 +61,12 @@ const Signin = () => {
                     errorMessage = err.response ? err.response.data.message : "An error occurred";
                     // console.log(errorMessage);
                     // setTimeout(() => {
-                        swal({
-                            title: "",
-                            text: errorMessage,
-                            icon: "error",
-                            button: "Aww yiss!",
-                        });
+                    swal({
+                        title: "",
+                        text: errorMessage,
+                        icon: "error",
+                        button: "Aww yiss!",
+                    });
                     // }, 6000);
                 })
 
@@ -95,18 +95,46 @@ const Signin = () => {
                         <div className="form">
                             <p className="form-title">Login</p>
                             <div class="input-container">
-                                <input type="text" autoComplete='true' 
-                                 className={`form-control w-100 my-4 p-3 ${formik.values.username && !formik.errors.username ? 'is-valid' : (formik.errors.username ? 'is-invalid' : '')}`}
-                                onChange={formik.handleChange} name='username' value={formik.values.username} placeholder="Username" />
+                                <input
+                                    type="text"
+                                    autoComplete="true"
+                                    className={`form-control w-100 my-4 p-3 ${(formik.values.username && !formik.errors.username) ||
+                                        (formik.touched.username && formik.values.username && formik.errors.username && formik.touched.username && formik.values.username)
+                                        ? 'is-valid'
+                                        : formik.values.username || formik.touched.username
+                                            ? 'is-invalid'
+                                            : ''
+                                        }`}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    name="username"
+                                    value={formik.values.username}
+                                    placeholder="Username"
+                                />
+
                             </div>
                             {/* <div className='text-end text-danger'>
                                 {formik.errors.username}
                             </div> */}
 
                             <div className="input-container">
-                                <input type="password" autoComplete='true' 
-                                 className={`form-control w-100 my-4 p-3 ${formik.values.password && !formik.errors.password ? 'is-valid' : (formik.errors.password ? 'is-invalid' : '')}`}
-                                onChange={formik.handleChange} name='password' value={formik.values.password} placeholder="Password" />
+                                <input
+                                    type="text"
+                                    autoComplete="true"
+                                    className={`form-control w-100 my-4 p-3 ${(formik.values.password && !formik.errors.password) ||
+                                        (formik.touched.password && formik.values.password && formik.errors.password)
+                                        ? 'is-valid'
+                                        : formik.values.password || formik.touched.password
+                                            ? 'is-invalid'
+                                            : ''
+                                        }`}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    name="password"
+                                    value={formik.values.password}
+                                    placeholder="password"
+                                />
+
                             </div>
                             {/* <div className='text-end text-danger'>
                                 {formik.errors.password}

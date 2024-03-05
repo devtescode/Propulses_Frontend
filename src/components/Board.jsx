@@ -114,7 +114,7 @@ const Board = ({ imgUrl }) => {
 
     return (
         <>
-            {/* style={{ width: wdth + 'vw', marginLeft: margin + 'vw' }} */}
+           
             <div className='divpassword'>
                 <ul style={style} className='board'>
                     {tiles.map((tile, index) => (

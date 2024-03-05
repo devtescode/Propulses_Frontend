@@ -48,8 +48,8 @@ button {
 
 @media (max-width: 688px) {
     .board{
-        height: 45vh !important;
-        width: 97.5% !important;
+        /* height: 35vh !important; */
+        width: 88% !important;
         margin: auto !important;
     }
     
@@ -61,4 +61,20 @@ button {
         place-items: center;
         height: 100% !important;
     }
+
+    .tile {
+
+        position: absolute;
+        list-style: none;
+        color: white;
+        background-color: #151346;
+        box-shadow: 0px 0px 2px 2px;
+        display: grid;
+        place-items: center;
+        font-size: 20px;
+        width: 70px !important;
+        height: 70px !important;
+    }
+    
+   
 }
