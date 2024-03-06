@@ -8,20 +8,17 @@
 }
 
 .Appp {
-    display: grid;
-    place-items: center;
+    display: grid !important;
+    place-items: center !important;
     height: 100vh;
-    border: 1px solid;
-    /* grid-template-columns: repeat()rf; */
+    /* border: 1px solid; */
 }
 
 .board {
     background-color: #4F46E5;
-    /* border: 2px solid; */
-
     position: relative;
-    height: 48vh !important;
-    width: 47vh !important;
+    height: 340px !important;
+    width: 340px !important;
     margin: 0 auto !important;
     padding: 0 !important;
     right: 0px !important;
@@ -30,7 +27,7 @@
 }
 
 .tile {
-    border: 2px solid;
+    /* border: 2px solid; */
     position: absolute;
     list-style: none;
     color: white;
@@ -39,8 +36,8 @@
     display: grid !important;
     place-items: center !important;
     font-size: 20px;
-    width: 25% !important;
-    height: 80px !important;
+    width: 85px !important;
+    height: 85px !important;
 }
 
 .hole {
@@ -53,8 +50,8 @@ button {
 
 @media (max-width: 688px) {
     .board{
-        width: 300px !important;
-        height: 300px !important;
+        width: 340px !important;
+        height: 340px !important;
         margin: auto !important;
     }
     
@@ -68,7 +65,6 @@ button {
     }
 
     .tile {
-        border: 2px solid;
         position: absolute !important;
         list-style: none;
         color: white;
@@ -77,8 +73,8 @@ button {
         place-items: center !important;
         font-size: 20px;
         /* left: 0px !important; */
-        width: 75px !important;
-        height: 75px !important;
+        width: 85px !important;
+        height: 85px !important;
         
     }
 }
