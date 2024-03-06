@@ -6,9 +6,10 @@ import { canSwap, shuffle, swap, isSolved } from '../components/Helpers'
 const Board = ({ imgUrl }) => {
     const [tiles, setTiles] = useState([...Array(TILE_COUNT).keys()]);
     const [isStarted, setIsStarted] = useState(false);
-    const [startTime, setStartTime] = useState(null);
+    const [startTime, setStartTime] = useState(0);
     const [elapsedTime, setElapsedTime] = useState(0);
-    const [intervalId, setIntervalId] = useState(null);
+   const [intervalId, setIntervalId] = useState(null);
+
     // const [wdth, setwdth] = useState('')
     // const [margin, setmargin] = useState('')
     // useEffect(() => {
@@ -23,24 +24,29 @@ const Board = ({ imgUrl }) => {
         if (isStarted) {
             const currentTime = Date.now();
             setStartTime(currentTime);
+
             const intervalId = setInterval(() => {
                 const elapsedSeconds = Math.floor((Date.now() - currentTime) / 1000);
                 setElapsedTime(elapsedSeconds);
-                if (elapsedSeconds >= 61) {
+
+                if (elapsedSeconds >= 180) { // 3 minutes
                     clearInterval(intervalId);
                     setIsStarted(false);
+                    const minutes = Math.floor(elapsedSeconds / 60);
+                    const seconds = elapsedSeconds % 60;
                     swal({
                         title: "Time",
-                        text: "Time's up! Game over.",
+                        text: `Time's up! Game over. Total time: ${minutes} minutes and ${seconds} seconds`,
                         icon: "error",
                         button: "Aww yiss!",
                     });
                 }
             }, 1000);
+
             return () => clearInterval(intervalId);
         }
-
     }, [isStarted]);
+
 
 
 
@@ -58,18 +64,23 @@ const Board = ({ imgUrl }) => {
         setIsStarted(true);
         setStartTime(Date.now());
     };
+    
     const swapTiles = (tileIndex) => {
         if (isStarted) {
             if (canSwap(tileIndex, tiles.indexOf(tiles.length - 1))) {
                 const swappedTiles = swap(tiles, tileIndex, tiles.indexOf(tiles.length - 1));
                 setTiles(swappedTiles);
-
+    
                 if (isSolved(swappedTiles)) {
                     clearInterval(intervalId);
                     setIsStarted(false);
+    
+                    const minutes = Math.floor(elapsedTime / 60);
+                    const seconds = elapsedTime % 60;
+    
                     swal({
                         title: "Congratulations!",
-                        text: `You solved the puzzle in ${elapsedTime} seconds!`,
+                        text: `You solved the puzzle in ${minutes} minutes and ${seconds} seconds!`,
                         icon: "success",
                         button: "Awesome!",
                     });
@@ -91,6 +102,7 @@ const Board = ({ imgUrl }) => {
             });
         }
     }
+    
 
 
     const handleTileClick = (index) => {
@@ -107,7 +119,7 @@ const Board = ({ imgUrl }) => {
         width: BOARD_SIZE,
         height: BOARD_SIZE,
         backgroundImage: `url(${imgUrl})`,
-        backgroundSize: 'cover', 
+        backgroundSize: 'cover',
     }
 
     const hasWon = isSolved(tiles)
@@ -140,7 +152,8 @@ const Board = ({ imgUrl }) => {
                             Restart Game
                         </button>
                     )}
-                    {isStarted && <div>Time Elapsed: {elapsedTime} seconds</div>}
+                    {/* {isStarted && <div>Time Elapsed: {elapsedTime} seconds</div>} */}
+                    <p>{`${Math.floor(elapsedTime / 60)} minutes ${elapsedTime % 60} seconds`}</p>
 
                 </div>
             </div >
