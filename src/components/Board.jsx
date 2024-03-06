@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react'
 import Tile from '../components/Tile'
 import { TILE_COUNT, GRID_SIZE, BOARD_SIZE } from '../components/Constants'
 import { canSwap, shuffle, swap, isSolved } from '../components/Helpers'
+import axios from 'axios'
 
 const Board = ({ imgUrl }) => {
     const [tiles, setTiles] = useState([...Array(TILE_COUNT).keys()]);
     const [isStarted, setIsStarted] = useState(false);
     const [startTime, setStartTime] = useState(0);
     const [elapsedTime, setElapsedTime] = useState(0);
-   const [intervalId, setIntervalId] = useState(null);
+    const [intervalId, setIntervalId] = useState(null);
+    const [stakeAmount, setStakeAmount] = useState(0)
 
     // const [wdth, setwdth] = useState('')
     // const [margin, setmargin] = useState('')
@@ -20,6 +22,9 @@ const Board = ({ imgUrl }) => {
     // })
 
 
+
+
+
     useEffect(() => {
         if (isStarted) {
             const currentTime = Date.now();
@@ -29,7 +34,7 @@ const Board = ({ imgUrl }) => {
                 const elapsedSeconds = Math.floor((Date.now() - currentTime) / 1000);
                 setElapsedTime(elapsedSeconds);
 
-                if (elapsedSeconds >= 180) { // 3 minutes
+                if (elapsedSeconds >= 120) {
                     clearInterval(intervalId);
                     setIsStarted(false);
                     const minutes = Math.floor(elapsedSeconds / 60);
@@ -51,6 +56,25 @@ const Board = ({ imgUrl }) => {
 
 
 
+    // const shuffleTiles = () => {
+    //     if (intervalId) {
+    //         clearInterval(intervalId);
+    //         setIntervalId(null);
+    //         setElapsedTime(0);
+    //         setStartTime(null);
+    //     }
+
+    //     const shuffledTiles = shuffle([...Array(TILE_COUNT).keys()]);
+    //     setTiles(shuffledTiles);
+    //     setIsStarted(true);
+    //     setStartTime(Date.now());
+    // };
+
+    const openModal = () => {
+        const modal = new bootstrap.Modal(document.getElementById('stakeModal'));
+        modal.show();
+    };
+
     const shuffleTiles = () => {
         if (intervalId) {
             clearInterval(intervalId);
@@ -59,25 +83,40 @@ const Board = ({ imgUrl }) => {
             setStartTime(null);
         }
 
-        const shuffledTiles = shuffle([...Array(TILE_COUNT).keys()]);
-        setTiles(shuffledTiles);
-        setIsStarted(true);
-        setStartTime(Date.now());
+        openModal();
+
     };
-    
+    const handleModalSubmit = () => {
+        const parsedStake = parseFloat(stakeAmount);
+        if (!isNaN(parsedStake) && parsedStake > 0) {
+            const shuffledTiles = shuffle([...Array(TILE_COUNT).keys()]);
+            setTiles(shuffledTiles);
+            setIsStarted(true);
+            setStartTime(Date.now());
+        } else {
+            swal({
+                title: "Amount",
+                text: `Please enter a valid and positive stake amount.`,
+                icon: "error",
+                button: "Aww yiss!",
+            });
+        }
+    };
+
     const swapTiles = (tileIndex) => {
         if (isStarted) {
             if (canSwap(tileIndex, tiles.indexOf(tiles.length - 1))) {
                 const swappedTiles = swap(tiles, tileIndex, tiles.indexOf(tiles.length - 1));
                 setTiles(swappedTiles);
-    
+
                 if (isSolved(swappedTiles)) {
                     clearInterval(intervalId);
                     setIsStarted(false);
-    
+
                     const minutes = Math.floor(elapsedTime / 60);
                     const seconds = elapsedTime % 60;
-    
+                    updateGameResult(true, elapsedTime);
+
                     swal({
                         title: "Congratulations!",
                         text: `You solved the puzzle in ${minutes} minutes and ${seconds} seconds!`,
@@ -102,7 +141,7 @@ const Board = ({ imgUrl }) => {
             });
         }
     }
-    
+
 
 
     const handleTileClick = (index) => {
@@ -123,6 +162,25 @@ const Board = ({ imgUrl }) => {
     }
 
     const hasWon = isSolved(tiles)
+
+
+    const updateGameResult = async (isWinner, elapsedTime) => {
+        try {
+            const response = await axios.post('http://localhost:4500/userinvest/puzzlepage', {
+                isWinner,
+                elapsedTime,
+            });
+
+            if (response.data.success) {
+                console.log('Game result updated successfully:', response.data);
+            } else {
+                throw new Error('Failed to update game result');
+            }
+        } catch (error) {
+            console.error('Error updating game result:', error.message);
+        }
+    };
+
 
     return (
         <>
@@ -154,7 +212,32 @@ const Board = ({ imgUrl }) => {
                     )}
                     {/* {isStarted && <div>Time Elapsed: {elapsedTime} seconds</div>} */}
                     <p>{`${Math.floor(elapsedTime / 60)} minutes ${elapsedTime % 60} seconds`}</p>
-
+                    {isStarted && <p>Stake Amount: ${stakeAmount}</p>}
+                </div>
+                <div className="modal fade" id="stakeModal" tabIndex="-1">
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title">Enter Stake Amount</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
+                                <label htmlFor="stakeAmount">Stake Amount:</label>
+                                <input
+                                    type="number"
+                                    id="stakeAmount"
+                                    value={stakeAmount}
+                                    onChange={(e) => setStakeAmount(e.target.value)}
+                                    className="form-control"
+                                    placeholder="Enter stake amount"
+                                />
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button data-bs-dismiss="modal" type="button" className="btn btn-primary" onClick={handleModalSubmit} >Start Game</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div >
 
