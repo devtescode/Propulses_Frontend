@@ -11,20 +11,7 @@ const Board = ({ imgUrl }) => {
     const [elapsedTime, setElapsedTime] = useState(0);
     const [intervalId, setIntervalId] = useState(null);
     const [stakeAmount, setStakeAmount] = useState(0)
-
-    // const [wdth, setwdth] = useState('')
-    // const [margin, setmargin] = useState('')
-    // useEffect(() => {
-    //     if (localStorage.width) {
-    //         setwdth(localStorage.width)
-    //         setmargin(localStorage.margin)
-    //     }
-    // })
-
-
-
-
-
+    const [displayStake, setDisplayStake] = useState(false);
     useEffect(() => {
         if (isStarted) {
             const currentTime = Date.now();
@@ -34,7 +21,7 @@ const Board = ({ imgUrl }) => {
                 const elapsedSeconds = Math.floor((Date.now() - currentTime) / 1000);
                 setElapsedTime(elapsedSeconds);
 
-                if (elapsedSeconds >= 120) {
+                if (elapsedSeconds >= 90) {
                     clearInterval(intervalId);
                     setIsStarted(false);
                     const minutes = Math.floor(elapsedSeconds / 60);
@@ -52,27 +39,11 @@ const Board = ({ imgUrl }) => {
         }
     }, [isStarted]);
 
-
-
-
-
-    // const shuffleTiles = () => {
-    //     if (intervalId) {
-    //         clearInterval(intervalId);
-    //         setIntervalId(null);
-    //         setElapsedTime(0);
-    //         setStartTime(null);
-    //     }
-
-    //     const shuffledTiles = shuffle([...Array(TILE_COUNT).keys()]);
-    //     setTiles(shuffledTiles);
-    //     setIsStarted(true);
-    //     setStartTime(Date.now());
-    // };
-
     const openModal = () => {
-        const modal = new bootstrap.Modal(document.getElementById('stakeModal'));
-        modal.show();
+        if (!isStarted) {
+            const modal = new bootstrap.Modal(document.getElementById('stakeModal'));
+            modal.show();
+        }
     };
 
     const shuffleTiles = () => {
@@ -82,24 +53,35 @@ const Board = ({ imgUrl }) => {
             setElapsedTime(0);
             setStartTime(null);
         }
-
         openModal();
-
     };
+
     const handleModalSubmit = () => {
         const parsedStake = parseFloat(stakeAmount);
-        if (!isNaN(parsedStake) && parsedStake > 0) {
-            const shuffledTiles = shuffle([...Array(TILE_COUNT).keys()]);
-            setTiles(shuffledTiles);
-            setIsStarted(true);
-            setStartTime(Date.now());
-        } else {
+        if (isNaN(parsedStake) || parsedStake < 10) {
             swal({
-                title: "Amount",
-                text: `Please enter a valid and positive stake amount.`,
-                icon: "error",
+                title: "Invalid Amount",
+                text: "Please enter a valid stake amount of at least $10.",
+                icon: "warning",
                 button: "Aww yiss!",
             });
+        } 
+        else if (parsedStake > 1000) {
+            swal({
+                title: "Amount",
+                text: "The maximum stake amount is $1000. Please enter a valid amount.",
+                icon: "warning",
+                button: "Aww yiss!",
+            });
+        } 
+        else {
+            if (!isStarted) {
+                const shuffledTiles = shuffle([...Array(TILE_COUNT).keys()]);
+                setTiles(shuffledTiles);
+                setIsStarted(true);
+                setStartTime(Date.now());
+                setDisplayStake(true);
+            }
         }
     };
 
@@ -212,7 +194,8 @@ const Board = ({ imgUrl }) => {
                     )}
                     {/* {isStarted && <div>Time Elapsed: {elapsedTime} seconds</div>} */}
                     <p>{`${Math.floor(elapsedTime / 60)} minutes ${elapsedTime % 60} seconds`}</p>
-                    {isStarted && <p>Stake Amount: ${stakeAmount}</p>}
+                    {displayStake && isStarted && <p style={{ color: '#4F46E5', fontSize: '16px', fontWeight: 'bold' }}>Stake Amount: ${stakeAmount}</p>}
+
                 </div>
                 <div className="modal fade" id="stakeModal" tabIndex="-1">
                     <div className="modal-dialog">
