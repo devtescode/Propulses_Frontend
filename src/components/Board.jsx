@@ -56,9 +56,9 @@ const Board = ({ imgUrl }) => {
         openModal();
     };
 
-    const handleModalSubmit = () => {
+    const handleModalSubmit =async () => {
         const parsedStake = parseFloat(stakeAmount);
-        if (isNaN(parsedStake) || parsedStake < 10) {
+        if (isNaN(parsedStake) || parsedStake < 1) {
             swal({
                 title: "Invalid Amount",
                 text: "Please enter a valid stake amount of at least $10.",
@@ -75,13 +75,18 @@ const Board = ({ imgUrl }) => {
             });
         }
         else {
-            if (!isStarted) {
-                const shuffledTiles = shuffle([...Array(TILE_COUNT).keys()]);
-                setTiles(shuffledTiles);
-                setIsStarted(true);
-                setStartTime(Date.now());
-                setDisplayStake(true);
-            }
+            const result=await axios.post('http://localhost:4500/userinvest/puzzlepage',{userToken,amount: parsedStake})
+            .then((response)=>{
+                alert( response.data.message)
+                if (response.data.status === true){
+                       alert( response.data.message)
+                       const shuffledTiles = shuffle([...Array(TILE_COUNT).keys()]);
+                       setTiles(shuffledTiles);
+                       setIsStarted(true);
+                       setStartTime(Date.now());
+                       setDisplayStake(true);
+               }
+            })
         }
     };
 
@@ -146,24 +151,24 @@ const Board = ({ imgUrl }) => {
     const hasWon = isSolved(tiles)
 
 
-    const updateGameResult = async (isWinner, elapsedTime) => {
-        try {
-            const response = await axios.post('http://localhost:4500/userinvest/puzzlepage', {
-                isWinner,
-                elapsedTime,
-            });
+    // const updateGameResult = async (isWinner, elapsedTime) => {
+    //     try {
+    //         const response = await axios.post('http://localhost:4500/userinvest/puzzlepage', {
+    //             isWinner,
+    //             elapsedTime,
+    //         });
 
-            if (response.data.success) {
-                console.log('Game result updated successfully:', response.data);
-                // Handle any additional logic after a successful update if needed
-            } else {
-                throw new Error('Failed to update game result');
-            }
-        } catch (error) {
-            console.error('Error updating game result:', error.message);
-            // Handle error, show a user-friendly message, or redirect to an error page
-        }
-    };
+    //         if (response.data.success) {
+    //             console.log('Game result updated successfully:', response.data);
+    //             // Handle any additional logic after a successful update if needed
+    //         } else {
+    //             throw new Error('Failed to update game result');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error updating game result:', error.message);
+    //         // Handle error, show a user-friendly message, or redirect to an error page
+    //     }
+    // };
     
     // validateuser
     const userToken =  localStorage.token;

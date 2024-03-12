@@ -168,6 +168,23 @@
 /* .divtextlanding {
     background-color: #4F46E5;
 } */
+.custom-shape-divider-top-1710249407 {
+    background-color: #4F46E5;
+    width: 100%;
+    overflow: hidden;
+}
+
+.custom-shape-divider-top-1710249407 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 163px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1710249407 .shape-fill {
+    fill: #FFFFFF;
+}
 @media (max-width:688px) {
     .landivonerealone {
         display: block;
