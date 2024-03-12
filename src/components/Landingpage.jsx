@@ -9,12 +9,12 @@ const Landingpage = () => {
   const LandingLoginBtn = () => {
     navigate("/login")
   }
-  const AdminBtn=()=>{
+  const AdminBtn = () => {
     navigate("/admin")
   }
   return (
     <>
-    
+
       <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid px-2 px-md-5 p-2">
           <a class="navbar-brand bg-success NavberImg" href="#"></a>
@@ -42,27 +42,57 @@ const Landingpage = () => {
           </div>
         </div>
       </nav>
-      <div className='landivone'>
-        <div className='landiveachone'>
-          <div className='col-md-11 col-sm-11 landpadding'>
-            <div className='textstylewelcome'>
-              <h1 className='fw-bold'>Welcome to Propulses where your financial aspirations take flight!</h1>
+
+
+      <div className="landing-clippysyl">
+      </div>
+      <div className='landivonerealone'>
+        <div className='landivone'>
+          <div className='landiveachone'>
+            <div className='col-md-11 col-sm-11 landpadding'>
+              <div className='textstylewelcome'>
+                <h1 className='fw-bold'>Welcome to Propulses where your financial aspirations take flight!</h1>
+              </div>
+              <div className='text-center mt-3 textstyleStart'>
+                <p className='fs-5 ptagstyle'>Start your investment journey with Propulses and receive an instant $4 bonus! Plus, boost your earnings by referring friends. It's not just an investment; it's a lucrative community. Join now and watch your wealth grow!</p>
+              </div>
+              <div>
+                <button className='landBtnstyle btn btn-dark' onClick={LandingRegisterBTn}>Register</button>
+                <button className='landBtnstyle btn btn-dark mx-2' onClick={LandingLoginBtn}>Login</button>
+              </div>
             </div>
-            <div className='text-center mt-3 textstyleStart'>
-              <p className='fs-5 ptagstyle'>Start your investment journey with Propulses and receive an instant $4 bonus! Plus, boost your earnings by referring friends. It's not just an investment; it's a lucrative community. Join now and watch your wealth grow!</p>
-            </div>
-          <div>
-              <button className='landBtnstyle btn btn-dark' onClick={LandingRegisterBTn}>Register</button>
-              <button className='landBtnstyle btn btn-dark mx-2' onClick={LandingLoginBtn}>Login</button>
-          </div>
           </div>
         </div>
+
         <div className='landiveachtwo'>
-          <div className='landiveachtwoImg'>
-            
+          <div className='landiveachtwoImg '>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row col-md-12 col-sm-12 mx-auto divtextlanding mt-4 mt-sm-5">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
           </div>
         </div>
       </div>
+
     </>
   )
 }

@@ -65,7 +65,7 @@ const Board = ({ imgUrl }) => {
                 icon: "warning",
                 button: "Aww yiss!",
             });
-        } 
+        }
         else if (parsedStake > 1000) {
             swal({
                 title: "Amount",
@@ -73,7 +73,7 @@ const Board = ({ imgUrl }) => {
                 icon: "warning",
                 button: "Aww yiss!",
             });
-        } 
+        }
         else {
             if (!isStarted) {
                 const shuffledTiles = shuffle([...Array(TILE_COUNT).keys()]);
@@ -155,13 +155,41 @@ const Board = ({ imgUrl }) => {
 
             if (response.data.success) {
                 console.log('Game result updated successfully:', response.data);
+                // Handle any additional logic after a successful update if needed
             } else {
                 throw new Error('Failed to update game result');
             }
         } catch (error) {
             console.error('Error updating game result:', error.message);
+            // Handle error, show a user-friendly message, or redirect to an error page
         }
     };
+    
+    // validateuser
+    const userToken =  localStorage.token;
+    console.log('userToken:', userToken);
+    const validateUser = async () => {
+        try {
+            const response = await axios.get('http://localhost:4500/userinvest/validateuser', {
+                headers: {
+                    Authorization: `Bearer ${userToken}`,
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+            });
+
+            if (response.data.success) {
+                console.log('User is validated successfully:', response.data);
+            } else {
+                throw new Error('User validation failed');
+            }
+        } catch (err) {
+            console.log('Error validating user:', err.message);
+        }
+    };
+    useEffect(() => {
+        validateUser(userToken);
+    }, [])
 
 
     return (
