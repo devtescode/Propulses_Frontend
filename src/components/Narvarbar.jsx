@@ -52,6 +52,10 @@ const Narvarbar = ({ user }) => {
     const PuzzleBtn=()=>{
         navigate("/puzzle")
     }
+
+    const Puzzlehistory=()=>{
+        navigate("/puzzlehis")
+    }
     // const [user, setUser] = useState("")
     let token = localStorage.token
 
@@ -140,6 +144,10 @@ const Narvarbar = ({ user }) => {
 
                                 <div>
                                     <button onClick={withdrawHisBtn} className='my-4 p-1 givebtnwidth border border-2 rounded-3'>History</button>
+                                </div>
+
+                                <div>
+                                    <button onClick={Puzzlehistory} className='my-4 p-1 givebtnwidth border border-2 rounded-3'>Puzzle History</button>
                                 </div>
                             </div>
                         </div>

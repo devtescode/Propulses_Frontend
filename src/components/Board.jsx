@@ -77,9 +77,21 @@ const Board = ({ imgUrl }) => {
         else {
             const result=await axios.post('http://localhost:4500/userinvest/puzzlepage',{userToken,amount: parsedStake})
             .then((response)=>{
-                alert( response.data.message)
+                
+                swal({
+                    title: "Balance",
+                    text: response.data.message,
+                    icon: "error",
+                    button: "Got it!",
+                });
                 if (response.data.status === true){
-                       alert( response.data.message)
+                       
+                       swal({
+                        title: "Success",
+                        text: response.data.message,
+                        icon: "success",
+                        button: "Got it!",
+                    });
                        const shuffledTiles = shuffle([...Array(TILE_COUNT).keys()]);
                        setTiles(shuffledTiles);
                        setIsStarted(true);

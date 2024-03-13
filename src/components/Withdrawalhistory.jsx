@@ -12,7 +12,11 @@ const Withdrawalhistory = () => {
             setmargin(localStorage.margin)
         }
     })
-
+    const time = (time)=>{
+        const utcDate = new Date(time);
+        const localDateString = utcDate.toLocaleString();
+        return localDateString
+    }
 
     const [withdrawalHistory, setWithdrawalHistory] = useState([]);
     useEffect(() => {
@@ -60,7 +64,7 @@ const Withdrawalhistory = () => {
                                         <th scope="row">{index+1}</th>
                                         <td>${entry.amount}</td>
                                         <td>{entry.MyaccountName}</td>
-                                        <td>{entry.date}</td>
+                                        <td>{time(entry.date)}</td>
                                     </tr>
                                 ))}
                             </tbody>
