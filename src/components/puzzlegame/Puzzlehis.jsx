@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Narvarbar from './Narvarbar';
+import Narvarbar from '../Narvarbar';
 import axios from 'axios';
 
 const Puzzlehis = () => {

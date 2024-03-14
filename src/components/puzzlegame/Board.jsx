@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import Tile from '../components/Tile'
-import { TILE_COUNT, GRID_SIZE, BOARD_SIZE } from '../components/Constants'
-import { canSwap, shuffle, swap, isSolved } from '../components/Helpers'
+import Tile from './Tile'
+import { TILE_COUNT, GRID_SIZE, BOARD_SIZE } from './Constants'
+import { canSwap, shuffle, swap, isSolved } from './Helpers'
 import axios from 'axios'
 
 const Board = ({ imgUrl }) => {

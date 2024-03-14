@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Narvarbar from './Narvarbar'
-import Board from '../components/Board';
-import { updateURLParameter } from '../components/Helpers';
+import Narvarbar from '../Narvarbar'
+import Board from './Board'
+import { updateURLParameter } from './Helpers';
 
 
 const Puzzle = () => {

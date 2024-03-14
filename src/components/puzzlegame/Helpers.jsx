@@ -1,4 +1,4 @@
-import {TILE_COUNT, GRID_SIZE} from "../components/Constants"
+import {TILE_COUNT, GRID_SIZE} from "./Constants"
 
 
 export function isSolvable(tiles){

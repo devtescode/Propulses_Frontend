@@ -1,7 +1,7 @@
 import React from 'react'
 import { Motion, spring } from 'react-motion'
-import { getMatrixPosition, getVisualPosition } from '../components/Helpers'
-import { TILE_COUNT, GRID_SIZE, BOARD_SIZE } from '../components/Constants'
+import { getMatrixPosition, getVisualPosition } from './Helpers'
+import { TILE_COUNT, GRID_SIZE, BOARD_SIZE } from './Constants'
 const Tile = (props) => {
     const { tile, index, width, height, handleTileClick, imgUrl} = props
     console.log("img in tile", imgUrl);
