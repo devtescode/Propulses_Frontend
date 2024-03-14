@@ -274,6 +274,13 @@
             "country": "Nigeria"
         },
         {
+            "name": "Moniepoint MFB",
+            "code": "50515",
+            "slug": "Moniepoint MFB",
+            "currency": "NGN",
+            "country": "Nigeria"
+        },
+        {
             "name": "Paga",
             "code": "100002",
             "slug": "paga",

@@ -26,7 +26,7 @@ const Profilepage = () => {
     };
     const myupload = () => {
         const userData = { file, token: localStorage.token };
-        console.log(userData);
+        // console.log(userData);
         axios.post(url, userData).then((response) => {
             swal({
                 title: "",

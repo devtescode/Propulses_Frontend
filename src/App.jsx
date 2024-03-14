@@ -19,6 +19,7 @@ import Notfound from './components/Notfound'
 import Spinner from './components/Spinner'
 import Puzzle from './components/puzzlegame/Puzzle'
 import Puzzlehis from './components/puzzlegame/Puzzlehis'
+
 function App() {
 
   let admintoken = localStorage.admintoken
@@ -56,7 +57,7 @@ function App() {
         <Route path='emailpage' element={<Emailpage />} />
         <Route path='spinner' element={<Spinner />} />
         <Route path='puzzle' element={<Puzzle/>}/>
-        <Route path='puzzlehis' element={<Puzzlehis/>}/>
+        <Route path='puzzlehis' element={<Puzzlehis/>} />
         <Route path='*' element={<Notfound />} />
       </Routes>
 

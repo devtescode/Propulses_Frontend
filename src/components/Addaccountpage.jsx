@@ -26,7 +26,7 @@ const Addaccountpage = () => {
             selectaccount: Yup.string().required('Required')
         }),
         onSubmit: values => {
-            axios.post("https://propulses.onrender.com/userinvest/addaccount", { Accountnumber: values.accountnumber, bankcode: values.selectaccount, bank:Data.banks.find((item)=>(item.code=== values.selectaccount)).name ,token: localStorage.token})
+            axios.post("https://propulses.onrender.com/userinvest/addaccount", { Accountnumber: values.accountnumber, bankcode: values.selectaccount, bank:Data.banks.find((item)=>(item.code=== values.selectaccount)).name, token: localStorage.token})
             .then((response)=>{
                 if (response.data.status == true){
                     setaccount(response.data.acct)
