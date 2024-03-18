@@ -75,7 +75,7 @@ const Board = ({ imgUrl }) => {
             });
         }
         else {
-            const result=await axios.post('http://localhost:4500/userinvest/puzzlepage',{userToken,amount: parsedStake})
+            const result=await axios.post('https://propulses.onrender.com/userinvest/puzzlepage',{userToken, amount: parsedStake})
             .then((response)=>{
                 
                 swal({
@@ -184,10 +184,10 @@ const Board = ({ imgUrl }) => {
     
     // validateuser
     const userToken =  localStorage.token;
-    console.log('userToken:', userToken);
+    // console.log('userToken:', userToken);
     const validateUser = async () => {
         try {
-            const response = await axios.get('http://localhost:4500/userinvest/validateuser', {
+            const response = await axios.get('https://propulses.onrender.com/userinvest/validateuser', {
                 headers: {
                     Authorization: `Bearer ${userToken}`,
                     'Content-Type': 'application/json',
