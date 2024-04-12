@@ -159,8 +159,8 @@ const Narvarbar = ({ user }) => {
                         </div>
                     </div>
                 </div>
-                <div className='eachgrid'>
-                    <nav className="bg-body-tertiary p-1">
+                <div className='eachgrid '>
+                    <nav className="bg-body-tertiary p-1 fixed-top">
                         <div className='navbarprofile my-3' onClick={profileBtn}>
 
                         </div>

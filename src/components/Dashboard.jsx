@@ -11,7 +11,7 @@ import fourth from '../assets/fourth.avif'
 
 const Dashboard = () => {
     const navigate = useNavigate()
-    let url = "https://propulses.onrender.com/userinvest/dashboard"
+    let url = "http://localhost:4500/userinvest/dashboard"
     
     useEffect(() => {
         setTimeout(() => {
